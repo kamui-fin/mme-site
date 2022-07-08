@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
     return (
-    <div>Homepage</div>
+    <div>Product Details Page</div>
     )
 }
 
