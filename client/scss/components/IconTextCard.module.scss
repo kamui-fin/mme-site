@@ -1,0 +1,25 @@
+@import "../abstracts/_variables.scss";
+
+.iconTextCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 8rem;
+    height: 8rem;
+    background: $bg-light;
+    border-radius: 7px;
+
+    svg {
+        fill: $accent-primary;
+        display: block;
+        margin: 0 auto;
+        width: 50px;
+    }
+
+    h4 {
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+}
