@@ -1,10 +1,10 @@
-import Button from "components/Button"
+import Checkbox from "components/Checkbox"
 import type { NextPage } from "next"
 
 const Home: NextPage = () => {
     return (
         <div>
-            <Button btnType="secondary">Signup</Button>
+            <Checkbox checked={false} />
         </div>
     )
 }
