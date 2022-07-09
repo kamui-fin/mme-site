@@ -1,0 +1,60 @@
+.page {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    margin: 3rem 0;
+}
+
+.formContainer {
+    width: 30rem;
+}
+
+.svg {
+    width: 24rem;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0.5rem 0;
+}
+
+.form {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.name {
+    display: flex;
+    gap: 2rem;
+}
+
+.firstname,
+.lastname,
+.email,
+.textarea,
+.phone {
+    width: 100%;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+}
+
+.textarea {
+    resize: none;
+}
+
+.btn {
+    width: 10rem;
+}
+
+.label {
+    font-weight: 500;
+}

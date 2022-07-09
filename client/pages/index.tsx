@@ -1,5 +1,4 @@
 import type { NextPage } from "next"
-import RangeInput from "components/RangeInput"
 import { Description } from "components/Description"
 
 const Home: NextPage = () => {

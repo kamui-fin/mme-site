@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 
 const Cart: NextPage = () => {
     return (
-    <div>Cart Page</div>
+        <div>Cart Page</div>
     )
 }
 
