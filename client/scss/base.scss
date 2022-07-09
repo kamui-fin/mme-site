@@ -9,6 +9,8 @@ html {
 
 body {
     background: $bg-dark;
+    min-height: 95vh;
+    overflow-y: hidden;
 }
 
 h4 {
