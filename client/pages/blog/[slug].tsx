@@ -17,7 +17,7 @@ const Article = ({ article }) => {
                 {/* <p>By {article.attributes.author.data.attributes.name}</p> */}
                 <span className={styles.iconText} style={{ marginRight: "1.4rem" }}>
                     <ClockOutline />
-                    <Moment format="MMM Do YYYY">{article.attributes.date}</Moment>
+                    <Moment format="MMM Do YYYY">{article.attributes.published_at}</Moment>
                 </span>
                 <span className={styles.iconText}>
                     <BookOutline />

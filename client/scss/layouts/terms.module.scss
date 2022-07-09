@@ -1,0 +1,8 @@
+@import "../abstracts/_variables";
+.page {
+    width: 100vw;
+    padding: 30px 75px;
+    h1, h2, h3{
+      color: $fg-light;
+    }
+}

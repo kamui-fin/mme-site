@@ -24,7 +24,7 @@ const Blog: NextPage = ({ articles }) => {
     )
     return (
         <main className={styles.main}>
-            <h2>Latest Articles</h2>
+            <h2 className={styles.title}>Latest Articles</h2>
             <div className={styles.fibGrid}>
                 {/* First three */}
                 <CardLink className={styles.first} article={latestThree[0]} />
@@ -33,7 +33,7 @@ const Blog: NextPage = ({ articles }) => {
                     <CardLink article={latestThree[2]} />
                 </div>
             </div>
-            <h2>All Articles</h2>
+            <h2 className={styles.title}>All Articles</h2>
             <div className={styles.articleGrid}>
                 {rest.map((article) => (
                     <CardLink article={article} />
