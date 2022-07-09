@@ -12,7 +12,8 @@ html {
 body {
     background: $bg-dark;
     min-height: 95vh;
-    overflow-y: hidden;
+    overflow-y: visible;
+    overflow-x: hidden;
 }
 
 h4 {
@@ -22,4 +23,38 @@ h4 {
 
 a {
     text-decoration: none;
+}
+
+.swiper-slide {
+    margin: 0px 20px;
+}
+
+.swiper-button-prev {
+    border-radius: 50%;
+    background-color: #172144;
+    width: 50px !important;
+    height: 50px !important;
+    &::after{
+        width: 9px !important;
+        height: 12px !important;
+        color: $accent-primary;
+        font-size: 13px !important;
+        font-weight: 800;
+        align-items: center;
+    }
+}
+
+.swiper-button-next {
+    border-radius: 50%;
+    background-color: #172144;
+    width: 50px !important;
+    height: 50px !important;
+    &::after{
+        width: 5px !important;
+        height: 12px !important;
+        color: $accent-primary;
+        font-size: 13px !important;
+        font-weight: 800;
+        align-items: center;
+    }
 }
