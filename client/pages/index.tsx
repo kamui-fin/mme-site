@@ -1,11 +1,22 @@
 import type { NextPage } from "next"
-import { ProductDetail } from "components/ProductDetail"
+import { Hero } from "components/Hero"
+import styles from "scss/layouts/index.module.scss"
+import { Carousel } from "components/Carousel"
 
 const Home: NextPage = () => {
     return (
-        <div>
-            <ProductDetail title="Sword Art Online Vol. 1" author="Reki Kawahara" coverType="Paperback" price={14.99} image="/sao.png" desc="In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. An anime television series produced by A-1 Pictures, known simply as Sword Art Online, aired in Japan between July and December 2012, with a television film Sword Art Online: Extra Edition airing on December 31, 2013, and a second season, titled Sword Art Online II, airing between July and December 2014. An animated film titled Sword Art Online The Movie: Ordinal Scale, featuring an original story by Kawahara, premiered in Japan and Southeast Asia on February 18, 2017, and was released in the United States on March 9, 2017. A spin-off anime series titled Sword Art Online Alternative Gun Gale Online premiered in April 2018, while a third season titled Sword Art Online: Alicization aired from October 2018 to September 2020."/>
-        </div>
+        <>
+            <Hero />
+            <div className={styles.bottomLanding}>
+                <section className={styles.books}>
+                    <h3 className={styles.subtitle}>Book Selection</h3>
+                    <Carousel className={styles.bookCarousel}/>
+                </section>
+                <section className={styles.genre}>
+                    <h3 className={styles.subtitle}>Genres</h3>
+                </section>
+            </div>
+        </>
     )
 }
 
