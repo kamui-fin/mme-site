@@ -1,0 +1,25 @@
+@import "../abstracts/_variables.scss";
+
+.rangeInput {
+    margin: 4rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.numberInput {
+    border-radius: 4px;
+    background: $fg-dark;
+    color: #fff;
+    padding: 1em 1.5em;
+    width: 4.4rem;
+    appearance: none;
+    border: none;
+    outline: none;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: textfield;
+}

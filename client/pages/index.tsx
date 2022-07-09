@@ -1,15 +1,10 @@
 import type { NextPage } from "next"
-import BreadCrumbs from "components/BreadCrumbs"
+import RangeInput from "components/RangeInput"
 
 const Home: NextPage = () => {
     return (
         <div>
-            <BreadCrumbs
-                path={[
-                    { name: "Home", href: "/" },
-                    { name: "Store", href: "/store" },
-                ]}
-            />
+            <RangeInput onDone={(min, max) => console.log(min, max)}/>
         </div>
     )
 }
