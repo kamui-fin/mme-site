@@ -1,0 +1,27 @@
+@import "../abstracts/_variables.scss";
+
+.container {
+    width: 30rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+}
+
+.collapsed {
+    max-height: 13rem;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.readMore {
+    text-decoration: underline;
+    font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
