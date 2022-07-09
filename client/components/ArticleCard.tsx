@@ -1,7 +1,9 @@
 import cx from "classnames"
 import styles from "scss/components/ArticleCard.module.scss"
-import moment from "moment"
 import ClockIcon from "../assets/clock.svg"
+import { Image } from "components/Image"
+import Moment from "react-moment"
+import moment from "moment"
 
 interface Props {
     className?: string
@@ -14,20 +16,16 @@ interface Props {
 export const ArticleCard = ({ title, image, date, duration, className }: Props) => {
     return (
         <div className={cx(styles.card, className)}>
-            <img className={styles.image} src={image} />
+            <Image image={image} />
             <div className={styles.textPart}>
-            <h3 className={styles.title}>{title}</h3>
-            <div className={styles.meta}>
-                <div className={styles.duration}>
-                    <ClockIcon className={styles.icon}/>
-                    <span>
-                        {moment.duration(duration).humanize()}
-                    </span>
+                <h3 className={styles.title}>{title}</h3>
+                <div className={styles.meta}>
+                    <div className={styles.duration}>
+                        <ClockIcon className={styles.icon} />
+                        <span>{moment.duration(duration).humanize()}</span>
+                    </div>
+                    <Moment format="MMM Do YYYY">{date}</Moment>
                 </div>
-                <span className={styles.date}>
-                    {moment(date).format('DD/MM/YYYY')}
-                </span>
-            </div>
             </div>
         </div>
     )
