@@ -21,6 +21,9 @@
   display: flex;
   justify-content: center;
   width: 33.33%;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .navlinks {
@@ -34,5 +37,8 @@
 .link {
   color: white !important;
   text-decoration: none !important;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
