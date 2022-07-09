@@ -1,0 +1,54 @@
+@import "../abstracts/_variables.scss";
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.image {
+    border-radius: 10px;
+    max-height: 500px;
+}
+
+.title, .author, .price, .coverType, .descTitle {
+    margin: 0;
+}
+
+.title {
+    font-size: 2rem;
+    color: $fg-white;
+    margin-bottom: .4rem;
+}
+
+.author {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.coverType {
+    font-weight: 500;
+    color: $fg-white;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.price {
+    margin-top: .4rem;
+    margin-bottom: .8rem;
+    font-size: 2rem;
+    color: $fg-white;
+}
+
+.btns {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.descTitle {
+    margin-bottom: .3rem;
+    color: $fg-white;
+}

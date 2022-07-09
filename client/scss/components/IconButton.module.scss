@@ -1,12 +1,16 @@
 @import "../abstracts/_variables.scss";
 
-.circle {
-    border-radius: 50%;
+.iconBtn {
     width: 48px;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+}
+
+.circle {
+    border-radius: 50%;
 }
 
 .circle:hover {
