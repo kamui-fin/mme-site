@@ -14,7 +14,7 @@ export const Description = ({ desc }: Props) => {
                 <span className={styles.description}>{desc}</span>
             </div>
             <p className={styles.readMore} onClick={() => setCollapsed(!collapsed)}>
-                Read more
+                {collapsed ? "Read more" : "Read less"}
             </p>
         </>
     )
