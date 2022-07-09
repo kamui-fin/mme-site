@@ -1,4 +1,5 @@
 import Button from "components/Button"
+import Link from "next/link"
 import React from "react"
 import styles from "scss/components/Navbar.module.scss"
 import Logo from "../../assets/logo.svg"
@@ -9,7 +10,7 @@ const Navbar = () => {
     return (
     <div className={styles.navbar}>
         <div className={styles.navitem}>
-            <Logo/>
+            <Link href="/"><Logo/></Link>
         </div>
         <div className={styles.navlinks}>
             <NavbarItem text="Home" url="/"/>
@@ -19,9 +20,9 @@ const Navbar = () => {
             <NavbarItem text="Contact" url="/contact"/>
         </div>
         <div className={styles.navitem}>
-            <Button className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/>
+            <a href="/cart"><Button className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/></a>
             <div style={{paddingLeft: "10px"}}/>
-            <Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/>
+            <a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a>
         </div>
     </div>
     )
