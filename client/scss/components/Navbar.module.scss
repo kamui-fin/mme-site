@@ -1,0 +1,35 @@
+@import "../abstracts/_variables.scss";
+
+.navbar {
+  display: flex;
+  position: sticky;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  color: $fg-light;
+  background-color: $bg-dark;
+  button {
+    height: 42px !important;
+    width: 160px;
+  }
+}
+
+.navitem {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.navlinks {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.link {
+  color: white !important;
+  text-decoration: none !important;
+}
+
