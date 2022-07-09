@@ -1,6 +1,7 @@
 @import "../abstracts/_variables.scss";
 
 .navbar {
+  z-index: 9999;
   display: flex;
   position: sticky;
   justify-content: center;
@@ -18,14 +19,16 @@
 
 .navitem {
   display: flex;
-  flex: 1;
   justify-content: center;
+  width: 33.33%;
 }
 
 .navlinks {
   display: flex;
   flex: 1;
   justify-content: space-around;
+  padding: 0px 90px;
+  font-weight: 500;
 }
 
 .link {
