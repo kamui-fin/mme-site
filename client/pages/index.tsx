@@ -1,10 +1,11 @@
-import { BookCard } from "components/BookCard"
+import { Input } from "components/Input"
+import SearchIcon from "assets/search.svg"
 import type { NextPage } from "next"
 
 const Home: NextPage = () => {
     return (
         <div>
-            <BookCard title="Sword Art Online Vol. 1" author="Reki Kawahara" image="/sao.png" coverType="Paperback" price={12}/>
+            <Input placeholder="Search" icon={<SearchIcon />} />
         </div>
     )
 }

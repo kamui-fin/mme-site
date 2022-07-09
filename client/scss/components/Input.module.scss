@@ -1,0 +1,37 @@
+@import "../abstracts/_variables.scss";
+
+.container {
+    display: flex;
+    margin: 3rem;
+}
+
+.iconBox {
+    display: flex;
+    background: #29335a;
+    border-right: 0.4px solid #384577;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    svg {
+        fill: $fg-icon;
+        width: 30px;
+    }
+
+    border-radius: 8px 0 0 8px;
+}
+
+.input {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 1.3rem;
+    color: $fg-icon;
+    background: #29335a;
+    border: none;
+    outline: none;
+}
+
+.withIcon {
+    border-radius: 0 8px 8px 0;
+}
