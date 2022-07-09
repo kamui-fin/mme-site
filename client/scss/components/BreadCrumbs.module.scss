@@ -1,0 +1,18 @@
+@import "../abstracts/_variables.scss";
+
+.breadcrumbs {
+    margin: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: $fg-white;
+}
+
+.icon {
+    fill: $accent-primary;
+}
