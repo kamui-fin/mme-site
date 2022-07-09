@@ -20,13 +20,20 @@
     border-radius: 8px 0 0 8px;
 }
 
-.input {
+.select {
+    /* Arrow Icon */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("/dropdown.svg") #29335a no-repeat
+        calc(100% - 10px) !important; 
+
     border-radius: 8px;
     font-weight: 600;
     font-size: 1.3rem;
     padding: 1.3rem;
+    padding-right: 3rem;
     color: $fg-icon;
-    background: #29335a;
     border: none;
     outline: none;
 }
