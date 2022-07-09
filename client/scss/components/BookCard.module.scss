@@ -21,25 +21,36 @@
 .title {
     font-weight: 500;
     font-size: 1.2rem;
-    margin: .8rem 0;
+    margin: .8rem 0 0 0;
+    color: $fg-light;
+    font-weight: bold;
 }
 
-.meta {
+.author {
+    margin: .4rem 0 0 0;
+    font-weight: 500;
+    font-size: .9rem;
+    color: $sub-light;
+}
+
+.coverType {
+    font-weight: regular;
+    margin: .8rem 0 0 0;
+}
+
+.bottom {
     display: flex;
     justify-content: space-between;
-    font-size: .8rem;
 }
 
-.duration {
+.btns {
     display: flex;
-    align-items: center;
-    gap: 5px;
-
-    span {
-        padding-bottom: 2px;
-    }
+    flex-direction: row;
+    gap: .9rem;
 }
 
-.icon {
-    width: .7rem;
+.price {
+    color: $fg-medium;
+    font-size: 2rem;
+    margin: .7rem 0;
 }

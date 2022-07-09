@@ -1,13 +1,10 @@
-import ScifiIcon from "../assets/scifi.svg"
-import { IconTextCard } from "components/IconTextCard"
+import { BookCard } from "components/BookCard"
 import type { NextPage } from "next"
-import { ArticleCard } from "components/ArticleCard"
-import IslandImage from "assets/island.png"
 
 const Home: NextPage = () => {
     return (
         <div>
-            <ArticleCard title="Cracking The Coding Interview" duration={134} date={new Date()} image="/island.png"/>
+            <BookCard title="Sword Art Online Vol. 1" author="Reki Kawahara" image="/sao.png" coverType="Paperback" price={12}/>
         </div>
     )
 }
