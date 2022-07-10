@@ -12,7 +12,7 @@ const Article = ({ article }) => {
 
     return (
         <div className={styles.container}>
-            <BreadCrumbs path={[{name: "Home", href: "/"}, {name: "Articles", href: "/blog"}]}/>
+            <BreadCrumbs className={styles.crumbs} path={[{name: "Home", href: "/"}, {name: "Articles", href: "/blog"}]}/>
             <div className={styles.meta}>
                 <img className={styles.articleImage} src={imageUrl} />
                 <h1 className={styles.title}>{article.attributes.title}</h1>

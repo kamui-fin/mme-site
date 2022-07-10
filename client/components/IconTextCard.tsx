@@ -11,7 +11,7 @@ export const IconTextCard = ({ icon, text, className }: Props) => {
     return (
         <div className={cx(className, styles.iconTextCard)}>
             {icon}
-            <h4>{text}</h4>
+            <h4 className={cx({[styles.withIcon]: !!icon})}>{text}</h4>
         </div>
     )
 }
