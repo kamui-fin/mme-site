@@ -1,6 +1,7 @@
 import BreadCrumbs from "components/BreadCrumbs"
 import Button from "components/Button"
 import type { NextPage } from "next"
+import BookLover from "assets/book-lover.svg"
 import styles from "scss/layouts/about.module.scss"
 
 const About: NextPage = () => {
@@ -9,10 +10,11 @@ const About: NextPage = () => {
             <BreadCrumbs className={styles.crumbs} path={[{name: "Home", href: "/"}, {name: "About", href: "/about"}]}/>
             <h1 className={styles.title}>About Us</h1>
             <h3 className={styles.subtitle}>Our mission</h3>
-            <p className={styles.para}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <h3 className={styles.subtitle}>Our story</h3>
-            <p className={styles.para}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p className={styles.para}>We are a team of various people who have sought to bridge the gap between languages and cultures and bring awesome new titles, too often neglected by other publishing companies in Spain. Our task is to improve the catalogue of books avaiable in Spanish and to provide a service where there's a demand for it.</p>
             <Button className={styles.contactBtn} btnType="primary">Get in touch</Button>
+            <div className={styles.img}>
+                <BookLover />
+            </div>
         </div>
     )
 }

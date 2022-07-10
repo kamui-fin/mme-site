@@ -3,6 +3,7 @@ import styles from "scss/components/BookCard.module.scss"
 import Heart from "../assets/heart-filled.svg"
 import Cart from "../assets/cart-filled.svg"
 import { IconButton } from "./IconButton"
+import { Image } from "components/Image"
 
 interface Props {
     className?: string
@@ -16,7 +17,7 @@ interface Props {
 export const BookCard = ({ title, author, image, coverType, price, className }: Props) => {
     return (
         <div className={cx(styles.card, className)}>
-            <img className={styles.image} src={image} />
+            <Image image={image} />
             <div className={styles.textPart}>
                 <h3 className={styles.title}>{title}</h3>
                 <h5 className={styles.author}>{author}</h5>

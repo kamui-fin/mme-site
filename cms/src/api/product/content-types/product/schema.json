@@ -46,6 +46,12 @@
         "videos",
         "audios"
       ]
+    },
+    "genre": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::genre.genre",
+      "inversedBy": "books"
     }
   }
 }
