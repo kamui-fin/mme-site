@@ -3,7 +3,7 @@ import styles from "scss/components/BookCard.module.scss"
 import Heart from "../assets/heart-filled.svg"
 import Cart from "../assets/cart-filled.svg"
 import { IconButton } from "./IconButton"
-import { Image } from "components/Image"
+import { getStrapiMedia } from "lib/api-strapi/api"
 
 interface Props {
     className?: string
@@ -17,7 +17,10 @@ interface Props {
 export const BookCard = ({ title, author, image, coverType, price, className }: Props) => {
     return (
         <div className={cx(styles.card, className)}>
-            <Image image={image} />
+            <img
+                className={styles.image}
+                src={getStrapiMedia(image)}
+            />
             <div className={styles.textPart}>
                 <h3 className={styles.title}>{title}</h3>
                 <h5 className={styles.author}>{author}</h5>

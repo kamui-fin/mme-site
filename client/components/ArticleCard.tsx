@@ -1,9 +1,9 @@
 import cx from "classnames"
 import styles from "scss/components/ArticleCard.module.scss"
 import ClockIcon from "../assets/clock.svg"
-import { Image } from "components/Image"
 import Moment from "react-moment"
 import moment from "moment"
+import { getStrapiMedia } from "lib/api-strapi/api"
 
 interface Props {
     className?: string
@@ -16,7 +16,10 @@ interface Props {
 export const ArticleCard = ({ title, image, date, duration, className }: Props) => {
     return (
         <div className={cx(styles.card, className)}>
-            <Image image={image} />
+            <img
+                className={styles.image}
+                src={getStrapiMedia(image)}
+            />
             <div className={styles.textPart}>
                 <h3 className={styles.title}>{title}</h3>
                 <div className={styles.meta}>
