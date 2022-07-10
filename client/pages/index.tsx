@@ -4,17 +4,10 @@ import styles from "scss/layouts/index.module.scss"
 import carousel from "scss/components/Carousel.module.scss"
 import { Carousel } from "components/Carousel"
 import { BookCard } from "components/BookCard"
-import ScifiIcon from "assets/scifi.svg"
-import ActionIcon from "assets/action.svg"
-import MysteryIcon from "assets/mystery.svg"
-import ComedyIcon from "assets/comedy.svg"
-import ThrillerIcon from "assets/thriller.svg"
-import RomanceIcon from "assets/romance.svg"
 import { IconTextCard } from "components/IconTextCard"
 import { fetchAPI } from "lib/api-strapi/api"
 
 const Home: NextPage = ({ books, genres }) => {
-    console.log(books, genres)
     const listGenres = genres.map((genre) => (
         <div className={carousel.carouselItem}>
             <IconTextCard text={genre.attributes.name} />
@@ -24,6 +17,7 @@ const Home: NextPage = ({ books, genres }) => {
     const listBooks = books.map((book) => (
         <div className={carousel.carouselItem}>
             <BookCard
+                id={book.id}
                 title={book.attributes.title}
                 author={book.attributes.author}
                 image={book.attributes.image}

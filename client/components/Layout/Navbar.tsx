@@ -20,9 +20,9 @@ const Navbar = () => {
             <NavbarItem text="Contact" url="/contact"/>
         </div>
         <div className={styles.navitem}>
-            <a href="/cart"><Button className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/></a>
+            <Link href={"/cart"}><a href="/cart"><Button className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/></a></Link>
             <div style={{paddingLeft: "10px"}}/>
-            <a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a>
+            <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link>
         </div>
     </div>
     )
