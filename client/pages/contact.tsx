@@ -1,4 +1,5 @@
 import ContactImage from "assets/contact.svg"
+import BreadCrumbs from "components/BreadCrumbs"
 import Button from "components/Button"
 import { Input } from "components/Input"
 import type { NextPage } from "next"
@@ -17,6 +18,7 @@ const Contact: NextPage = () => {
     return (
         <div className={styles.page}>
             <div className={styles.formContainer}>
+                <BreadCrumbs className={styles.crumbs} path={[{name: "Home", href: "/"}, {name: "Contact", href: "/contact"}]}/>
                 <h2 className={styles.title}>Get in touch</h2>
                 <h4 className={styles.subtitle}>Our friendly team would love to hear from you!</h4>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

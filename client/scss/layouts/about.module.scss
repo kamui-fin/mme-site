@@ -1,5 +1,7 @@
 .aboutContainer {
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
     margin: 3rem auto;
 }
 
@@ -20,6 +22,14 @@
     margin-top: .5rem;
     line-height: 1.6rem;
     font-size: 1.2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     max-width: 45rem;
+}
+
+.crumbs {
+    margin-bottom: 2rem;
+}
+
+.contactBtn {
+    width: 12rem;
 }
