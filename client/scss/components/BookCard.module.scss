@@ -9,15 +9,18 @@
 }
 
 .image {
-    height: 16rem;
+    height: 18rem;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
 
 .textPart {
+    display: flex;
+    flex-direction: column;
     background: $bg-light;
     padding: 0 .7rem .7rem;
     border-radius: 0 0 10px 10px;
+    height: 12em;
 }
 
 .title {
@@ -36,12 +39,12 @@
 }
 
 .coverType {
-    font-weight: regular;
-    margin: .8rem 0 0 0;
+    margin: auto 0 0 0;
 }
 
 .bottom {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
