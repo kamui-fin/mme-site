@@ -4,18 +4,21 @@ import Heart from "../assets/heart-filled.svg"
 import Cart from "../assets/cart-filled.svg"
 import { IconButton } from "./IconButton"
 import { getStrapiMedia } from "lib/api-strapi/api"
+import Link from "next/link"
 
 interface Props {
     className?: string
     title: string
     author: string
+    url: string | object
     image: string
     coverType: "Paperback" | "Hardcover"
     price: number
 }
 
-export const BookCard = ({ title, author, image, coverType, price, className }: Props) => {
+export const BookCard = ({ title, author, image, coverType, price, url, className }: Props) => {
     return (
+    <Link href={url || ""}>
         <div className={cx(styles.card, className)}>
             <img
                 className={styles.image}
@@ -34,5 +37,6 @@ export const BookCard = ({ title, author, image, coverType, price, className }: 
                 </div>
             </div>
         </div>
+    </Link>
     )
 }
