@@ -30,10 +30,8 @@ const Blog: NextPage = ({ articles }) => {
             <div className={styles.fibGrid}>
                 {/* First three */}
                 <CardLink className={styles.first} article={latestThree[0]} />
-                <div className={styles.col}>
-                    <CardLink article={latestThree[1]} />
-                    <CardLink article={latestThree[2]} />
-                </div>
+                <CardLink article={latestThree[1]} />
+                <CardLink article={latestThree[2]} />
             </div>
             <h2 className={styles.title}>All Articles</h2>
             <div className={styles.articleGrid}>
