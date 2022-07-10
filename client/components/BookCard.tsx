@@ -17,7 +17,7 @@ interface Props {
 export const BookCard = ({ title, author, image, coverType, price, className }: Props) => {
     return (
         <div className={cx(styles.card, className)}>
-            <Image image={image} />
+            <Image image={image} className={styles.image}/>
             <div className={styles.textPart}>
                 <h3 className={styles.title}>{title}</h3>
                 <h5 className={styles.author}>{author}</h5>
