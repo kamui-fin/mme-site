@@ -6,6 +6,11 @@ import { Carousel } from "components/Carousel"
 import { SwiperSlide } from "swiper/react"
 import { BookCard } from "components/BookCard"
 import ScifiIcon from "assets/scifi.svg"
+import ActionIcon from "assets/action.svg"
+import MysteryIcon from "assets/mystery.svg"
+import ComedyIcon from "assets/comedy.svg"
+import ThrillerIcon from "assets/thriller.svg"
+import RomanceIcon from "assets/romance.svg"
 import { IconTextCard } from "components/IconTextCard"
 
 const Home: NextPage = () => {
@@ -53,40 +58,41 @@ const Home: NextPage = () => {
             price: 12.99,
         },
     ]
-    const genres=[
+    const genres = [
         {
-            icon: <ScifiIcon/>,
-            text: "Sci-Fi"
+            icon: <ActionIcon />,
+            text: "Action",
         },
         {
-            icon: <ScifiIcon/>,
-            text: "Sci-Fi"
+            icon: <MysteryIcon />,
+            text: "Mystery",
         },
         {
-            icon: <ScifiIcon/>,
-            text: "Sci-Fi"
+            icon: <ScifiIcon />,
+            text: "Sci-Fi",
         },
         {
-            icon: <ScifiIcon/>,
-            text: "Sci-Fi"
+            icon: <ComedyIcon />,
+            text: "Comedy",
         },
         {
-            icon: <ScifiIcon/>,
-            text: "Sci-Fi"
-        }
+            icon: <ThrillerIcon />,
+            text: "Thriller",
+        },
+        {
+            icon: <RomanceIcon />,
+            text: "Romance",
+        },
     ]
 
     const listGenres = genres.map((genre) => (
         <SwiperSlide>
             <div className={carousel.carouselItem}>
-                <IconTextCard
-                  icon={genre.icon}
-                  text={genre.text}
-                />
+                <IconTextCard icon={genre.icon} text={genre.text} />
             </div>
         </SwiperSlide>
     ))
-    
+
     const listCards = cards.map((card) => (
         <SwiperSlide>
             <div className={carousel.carouselItem}>
@@ -107,11 +113,11 @@ const Home: NextPage = () => {
             <div className={styles.bottomLanding}>
                 <section className={styles.books}>
                     <h3 className={styles.subtitle}>Book Selection</h3>
-                    <Carousel count={5} className={styles.bookCarousel} children={listCards}/>
+                    <Carousel count={4} className={styles.bookCarousel} children={listCards} />
                 </section>
                 <section className={styles.genre}>
                     <h3 className={styles.subtitle}>Genres</h3>
-                    <Carousel count={4} children={listGenres}/>
+                    <Carousel count={4} children={listGenres} />
                 </section>
             </div>
         </>
