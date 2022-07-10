@@ -112,11 +112,11 @@ const Home: NextPage = () => {
             <div className={styles.bottomLanding}>
                 <section className={styles.books}>
                     <h3 className={styles.subtitle}>Book Selection</h3>
-                    <Carousel count={4} children={listCards}/>
+                    <Carousel width={"60%"} count={4} children={listCards}/>
                 </section>
                 <section className={styles.genre}>
                     <h3 className={styles.subtitle}>Genres</h3>
-                    <Carousel count={5} children={listGenres}/>
+                    <Carousel width={"60%"} count={5} children={listGenres}/>
                 </section>
             </div>
         </>
