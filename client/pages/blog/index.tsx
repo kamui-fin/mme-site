@@ -4,6 +4,7 @@ import cx from "classnames"
 import type { NextPage } from "next"
 import Link from "next/link"
 import styles from "scss/layouts/blog.module.scss"
+import BreadCrumbs from "components/BreadCrumbs"
 
 const Blog: NextPage = ({ articles }) => {
     const sorted = articles.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
@@ -24,6 +25,7 @@ const Blog: NextPage = ({ articles }) => {
     )
     return (
         <main className={styles.main}>
+            <BreadCrumbs path={[{name: "Home", href: "/"}, {name: "Articles", href: "/blog"}]}/>
             <h2 className={styles.title}>Latest Articles</h2>
             <div className={styles.fibGrid}>
                 {/* First three */}

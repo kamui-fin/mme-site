@@ -5,12 +5,14 @@ import { fetchAPI, getStrapiMedia } from "lib/api-strapi/api"
 import BookOutline from "assets/book-outline.svg"
 import ClockOutline from "assets/clock-outline.svg"
 import styles from "scss/layouts/article.module.scss"
+import BreadCrumbs from "components/BreadCrumbs"
 
 const Article = ({ article }) => {
     const imageUrl = getStrapiMedia(article.attributes.image)
 
     return (
         <div className={styles.container}>
+            <BreadCrumbs path={[{name: "Home", href: "/"}, {name: "Articles", href: "/blog"}]}/>
             <div className={styles.meta}>
                 <img className={styles.articleImage} src={imageUrl} />
                 <h1 className={styles.title}>{article.attributes.title}</h1>

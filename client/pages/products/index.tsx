@@ -1,9 +1,13 @@
+import BreadCrumbs from 'components/BreadCrumbs'
 import type { NextPage } from 'next'
 
-const Home: NextPage = () => {
+const Store: NextPage = () => {
     return (
-    <div>Store Page</div>
+    <div>
+        <BreadCrumbs path={[{name: "Home", href: "/"}, {name: "Store", href: "/products"}]}/>
+        Store Page
+    </div>
     )
 }
 
-export default Home
+export default Store
