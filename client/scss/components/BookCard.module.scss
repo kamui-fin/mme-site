@@ -2,14 +2,17 @@
 
 .card {
     display: flex;
-    min-width: 20rem;
+    min-width: 16rem;
+    max-width: 18rem;
     flex-direction: column;
     padding: 1rem;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .image {
-    max-height: 23rem;
+    max-height: 19rem;
+    min-width: 16rem;
+    max-width: 18rem;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
