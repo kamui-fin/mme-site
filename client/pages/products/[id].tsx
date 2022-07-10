@@ -22,7 +22,6 @@ const Product: NextPage = () => {
     }
     const related = [...Array(4).keys()].map(() => book)
     const listCards = related.map((card) => (
-        <SwiperSlide>
             <div className={carousel.carouselItem}>
                 <BookCard
                     title={card.title}
@@ -32,7 +31,6 @@ const Product: NextPage = () => {
                     price={card.price}
                 />
             </div>
-        </SwiperSlide>
     ))
     return (
         <div>
@@ -42,7 +40,7 @@ const Product: NextPage = () => {
             </div>
             <div className={styles.related}>
                 <h1>You may also like</h1>
-                <Carousel count={4} className={styles.bookCarousel} children={listCards} />
+                <Carousel count={4} className={styles.bookCarousel} children={listCards} width={"60%"} />
             </div>
         </div>
     )
