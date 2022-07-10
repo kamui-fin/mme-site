@@ -29,6 +29,9 @@ export const fetchAPI = async (path: string, urlParamsObject = {}, options = {})
 }
 
 export const getStrapiMedia = (media) => {
+    if (typeof media === 'string') {
+        return media;
+    }
     const { url } = media.data.attributes;
     const imageUrl = url.startsWith("/") ? getStrapiURL(url) : url;
     return imageUrl;
