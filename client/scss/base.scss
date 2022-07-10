@@ -16,6 +16,13 @@ body {
     overflow-x: hidden;
 }
 
+.app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 h4 {
     padding: 0;
     margin: 0;

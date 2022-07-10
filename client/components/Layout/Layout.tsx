@@ -8,11 +8,11 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
     return (
-        <React.Fragment>
+        <main className="app">
             <Navbar />
             {children}
             <Footer/>
-        </React.Fragment>
+        </main>
     )
 }
 
