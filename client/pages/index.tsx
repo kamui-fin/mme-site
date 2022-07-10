@@ -86,15 +86,15 @@ const Home: NextPage = () => {
     ]
 
     const listGenres = genres.map((genre) => (
-        <SwiperSlide>
-            <div className={carousel.carouselItem}>
-                <IconTextCard icon={genre.icon} text={genre.text} />
-            </div>
-        </SwiperSlide>
+        <div className={carousel.carouselItem}>
+            <IconTextCard
+              icon={genre.icon}
+              text={genre.text}
+            />
+        </div>
     ))
 
     const listCards = cards.map((card) => (
-        <SwiperSlide>
             <div className={carousel.carouselItem}>
                 <BookCard
                     title={card.title}
@@ -104,7 +104,6 @@ const Home: NextPage = () => {
                     price={card.price}
                 />
             </div>
-        </SwiperSlide>
     ))
 
     return (
@@ -113,11 +112,11 @@ const Home: NextPage = () => {
             <div className={styles.bottomLanding}>
                 <section className={styles.books}>
                     <h3 className={styles.subtitle}>Book Selection</h3>
-                    <Carousel count={4} className={styles.bookCarousel} children={listCards} />
+                    <Carousel count={4} children={listCards}/>
                 </section>
                 <section className={styles.genre}>
                     <h3 className={styles.subtitle}>Genres</h3>
-                    <Carousel count={4} children={listGenres} />
+                    <Carousel count={5} children={listGenres}/>
                 </section>
             </div>
         </>

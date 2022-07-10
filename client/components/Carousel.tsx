@@ -1,11 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Navigation } from "swiper"
-import cx from "classnames"
-import "swiper/css"
-import style from "scss/components/Carousel.module.scss"
-import "swiper/css"
-import "swiper/css/pagination"
-import "swiper/css/navigation"
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick"
 
 interface Props {
     className?: string
@@ -13,24 +8,20 @@ interface Props {
     children: React.ReactNode
 }
 
+
 export const Carousel = ({ className, count, children }: Props) => {
-    return (
-        <>
-            <Swiper
-                className={cx(style.swiper, className)}
-                slidesPerView={count | 3}
-                slidesPerGroup={1}
-                loop={true}
-                navigation
-                centeredSlides={true}
-                loopFillGroupWithBlank={true}
-                pagination={{
-                    enabled: false,
-                }}
-                modules={[Pagination, Navigation]}
+    return (<>
+            <Slider
+                className={className}     
+                dots={true}
+                infinite= {true}
+                speed= {500}
+                slidesToShow= {count}
+                slidesToScroll={1}
+                arrows={true}
+                
             >
                 {children}
-            </Swiper>
-        </>
-    )
+            </Slider>
+            </>)
 }
