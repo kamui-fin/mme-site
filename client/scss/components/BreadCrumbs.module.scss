@@ -1,11 +1,9 @@
 @import "../abstracts/_variables.scss";
 
 .breadcrumbs {
-    margin: 3rem auto;
     display: flex;
     align-items: center;
     gap: 1rem;
-    max-width: 70rem;
 }
 
 .page {

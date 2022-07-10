@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styles from "scss/components/BreadCrumbs.module.scss"
+import cx from "classnames"
 import ArrowIcon from "assets/arrow-right.svg"
 
 interface PageLink {
@@ -9,11 +10,12 @@ interface PageLink {
 
 interface Props {
     path: PageLink[]
+    className?: string
 }
 
-const BreadCrumbs = ({ path }: Props) => {
+const BreadCrumbs = ({ className, path }: Props) => {
     return (
-        <div className={styles.breadcrumbs}>
+        <div className={cx(styles.breadcrumbs, className)}>
             {path.map(({ name, href }, index) => {
                 return (
                     <>
