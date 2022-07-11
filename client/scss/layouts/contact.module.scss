@@ -1,26 +1,35 @@
+@import "~rfs/scss";
+
 .page {
     display: flex;
-    justify-content: center;
-    gap: 8rem;
-    margin: 3rem 0;
+    flex-direction: row;
+    margin: 5rem auto 0 auto;
+    padding: 0 1.5rem;
 }
 
 .formContainer {
-    width: 30rem;
+    width: 100%;
 }
 
-.svg {
-    width: 24rem;
+.img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 3rem;
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
 }
 
 .title {
-    font-size: 4rem;
+    @include font-size(4rem);
     font-weight: 600;
     margin: 0;
 }
 
 .subtitle {
-    font-size: 1.3rem;
+    @include font-size(1.3rem);
     font-weight: 500;
     margin: 0.5rem 0;
 }
@@ -34,6 +43,10 @@
 
 .name {
     display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+    }
     gap: 2rem;
 }
 
@@ -44,7 +57,7 @@
 .phone {
     width: 100%;
     margin-top: 0.2rem;
-    font-size: 1rem;
+    @include font-size(0.95rem);
 }
 
 .textarea {

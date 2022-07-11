@@ -4,6 +4,7 @@ import Button from "components/Button"
 import { Input } from "components/Input"
 import type { NextPage } from "next"
 import { useForm } from "react-hook-form"
+import Image from 'next/image'
 import styles from "scss/layouts/contact.module.scss"
 
 const Contact: NextPage = () => {
@@ -49,7 +50,9 @@ const Contact: NextPage = () => {
                     </Button>
                 </form>
             </div>
-            <ContactImage className={styles.svg} />
+            <div className={styles.img}>
+                <Image src="/contact.png" width={460} height={588}/>
+            </div>
         </div>
     )
 }
