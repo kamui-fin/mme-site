@@ -2,7 +2,7 @@ import express from "express"
 import helmet from "helmet"
 import cors from "cors"
 import morgan from "morgan"
-import { AppDataSource, APP_PORT } from "./config"
+import { AppDataSource, APP_PORT, FRONTEND_URI } from "./config"
 import { errorHandler } from "./middlewares/error"
 import { errors } from "celebrate"
 import { router } from "./routes"
@@ -10,7 +10,7 @@ import { logger } from "./utils"
 import "reflect-metadata"
 
 const app = express()
-app.use(cors({ origin: "http://localhost:3000", credentials: true }))
+app.use(cors({ origin: FRONTEND_URI, credentials: true }))
 app.use(helmet())
 app.use(morgan("combined"))
 app.use(express.json())
