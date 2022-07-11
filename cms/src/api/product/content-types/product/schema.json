@@ -52,6 +52,13 @@
       "relation": "manyToOne",
       "target": "api::genre.genre",
       "inversedBy": "books"
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "pre-order",
+        "in-stock"
+      ]
     }
   }
 }

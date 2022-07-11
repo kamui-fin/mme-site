@@ -10,89 +10,115 @@ import Button from 'components/Button'
 import RangeInput from 'components/RangeInput'
 import Checkbox from 'components/Checkbox'
 import { fetchAPI } from 'lib/api-strapi/api'
+import { useState } from 'react'
 
-const Store: NextPage = ({ books }) => {
-    // temp
-    // const book = {
-    //     title: "Sword Art Online Vol. 1",
-    //     desc: "In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. An anime television series produced by A-1 Pictures, known simply as Sword Art Online, aired in Japan between July and December 2012, with a television film Sword Art Online: Extra Edition airing on December 31, 2013, and a second season, titled Sword Art Online II, airing between July and December 2014. An animated film titled Sword Art Online The Movie: Ordinal Scale, featuring an original story by Kawahara, premiered in Japan and Southeast Asia on February 18, 2017, and was released in the United States on March 9, 2017. A spin-off anime series titled Sword Art Online Alternative Gun Gale Online premiered in April 2018, while a third season titled Sword Art Online: Alicization aired from October 2018 to September 2020.",
-    //     author: "Reki Kawahara",
-    //     image: "/sao.png",
-    //     coverType: "Paperback",
-    //     price: 12.99,
-    // }
-    // const books = [...Array(8).keys()].map(() => book)
+const Store: NextPage = ({ books, genres }) => {
+    const [items, setItems] = useState(books)
+    const [sorting, setSorting] = useState("Name A-Z")
+    const [query, setQuery] = useState("")
+    const [pricingRange, setPricingRange] = useState({min: Number.MIN_VALUE, max: Number.MAX_VALUE})
+    const [genreFilter, setGenreFilter] = useState([])
+    const [coverFilter, setCoverFilter] = useState("")
+    const [availFilter, setAvailFilter] = useState("")
+
+    const searchSort = () => {
+        let res = items
+        if (query !== "") {
+            res = res.filter(item => item.attributes.title.toLowerCase().includes(query))
+        }
+        if (sorting !== "") {
+            switch (sorting) {
+                case "Name A-Z":
+                    res = res.sort((a, b) => a.attributes.title.localeCompare(b.attributes.title));
+                    break;
+                case "Name Z-A":
+                    res = res.sort((a, b) => b.attributes.title.localeCompare(a.attributes.title));
+                    break;
+                case "Pricing":
+                    res = res.sort((a, b) => a.attributes.price - b.attributes.price);
+                    break;
+            }
+        }
+        return res
+    }
+
+    const applyFilters = () => {
+        let newItems = books.filter(item => item.attributes.price >= pricingRange.min  && item.attributes.price <= pricingRange.max)
+        if (genreFilter.length !== 0) {
+            newItems = newItems.filter(item => genreFilter.includes(item.attributes.genre.data.attributes.name))
+        }
+        if (coverFilter !== "") {
+            newItems = newItems.filter(item => item.attributes.coverType === coverFilter.toLowerCase())
+        }
+        if (availFilter)
+            newItems = newItems.filter(item => item.attributes.availability === availFilter.toLowerCase())
+        setItems(newItems)
+    }
+
     return (
         <div className={styles.store}>
             <aside className={styles.filterBar}>
                 <div>
                     <h3>Price €</h3>
-                    <RangeInput />
+                    <RangeInput onDone={(min, max) => { setPricingRange({min, max}) }}/>
                 </div>
                 <div className={styles.checkGroup}>
                     <h3>Genre</h3>
-                    <div>
-                        <Checkbox />
-                        <label>Action</label>
-                    </div>
-                    <div>
-                        <Checkbox />
-                        <label>Comedy</label>
-                    </div>
-                    <div>
-                        <Checkbox />
-                        <label>Fantasy</label>
-                    </div>
-                    <div>
-                        <Checkbox />
-                        <label>Sci-Fi</label>
-                    </div>
+                    {
+                        genres.map(genre => (
+                            <div>
+                                <Checkbox onDone={(checked) => {
+                                    if (!checked) {
+                                        setGenreFilter(genreFilter.filter((g: string) => g !== genre))
+                                    } else {
+                                        setGenreFilter([...genreFilter, genre])
+                                    }
+                                }} />
+                                <label>{genre}</label>
+                            </div>
+                        ))
+                    }
                 </div>
-                <div>
                 <div className={styles.checkGroup}>
                     <h3>Cover</h3>
-                        <div>
-                            <Checkbox />
-                            <label>Paperback</label>
-                        </div>
-                        <div>
-                            <Checkbox />
-                            <label>Hardcover</label>
-                        </div>
-                        <div>
-                            <Checkbox />
-                            <label>Digital</label>
-                        </div>
-                    </div>
+                    {
+                        ["Paperback", "Hardcover", "Digital"].map(cv => (
+                            <div>
+                                <Checkbox checked={coverFilter === cv} onDone={(checked) => {
+                                    setCoverFilter(checked ? cv : "")
+                                }}/>
+                                <label>{cv}</label>
+                            </div>
+                        ))
+                    }
                 </div>
                 <div className={styles.checkGroup}>
                     <h3>Availability</h3>
-                    <div>
-                        <Checkbox />
-                        <label>Paperback</label>
-                    </div>
-                    <div>
-                        <Checkbox />
-                        <label>Hardcover</label>
-                    </div>
-                    <div>
-                        <Checkbox />
-                        <label>Digital</label>
-                    </div>
+                    {
+                        ["Pre-Order", "In-Stock"].map(av => (
+                            <div>
+                                <Checkbox checked={availFilter === av} onDone={(checked) => {
+                                    setAvailFilter(checked ? av : "")
+                                }}/>
+                                <label>{av}</label>
+                            </div>
+                        ))
+                    }
                 </div>
-                <Button btnType="secondary">Apply Filter</Button>
+                <Button btnType="secondary" onDone={applyFilters}>Apply Filter</Button>
             </aside>
             <section className={styles.mainContainer}>
                 <BreadCrumbs path={[{name: "Home", href: "/"}, {name: "Store", href: "/products"}]}/>
                 <h1>Catalog</h1>
                 <div className={styles.searchSort}>
-                    <Input icon={<SearchIcon />} placeholder="Search"/>
-                    <Select icon={<SortIcon />} items={["Popular"]} />
+                    <Input icon={<SearchIcon />} placeholder="Search" onDone={(text) => setQuery(text)}/>
+                    <Select icon={<SortIcon />} items={["Name A-Z", "Name Z-A", "Pricing"]} onDone={(option) => {setSorting(option)}} />
                 </div>
                 <div className={styles.bookGrid}>
-                    {books.map(book => (
+                    {(searchSort(items)).map(book => (
                         <BookCard
                             className={styles.bookCard}
+                            id={book.id}
                             title={book.attributes.title}
                             author={book.attributes.author}
                             image={book.attributes.image}
@@ -110,10 +136,12 @@ export default Store
 
 export const getStaticProps = async () => {
     const booksRes = await fetchAPI("/products", { populate: ["image", "genre"] })
-
+    const genres = await fetchAPI("/genres")
+    const genreNames = genres.data.map(genre => genre.attributes.name)
     return {
         props: {
             books: booksRes.data,
+            genres: genreNames
         },
         revalidate: 1,
     }

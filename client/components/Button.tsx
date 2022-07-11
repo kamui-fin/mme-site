@@ -8,16 +8,14 @@ interface Props {
     className?: string
 }
 
-const Button = ({ btnType = "primary", className, children }: Props) => {
-    const handleOnClick = () => {}
-
+const Button = ({ btnType = "primary", className, children, onDone }: Props) => {
     return (
         <button
             className={cx(styles.btn, className, {
                 [styles.primary]: btnType === "primary",
                 [styles.secondary]: btnType === "secondary",
             })}
-            onClick={handleOnClick}
+            onClick={onDone}
         >
             {children}
         </button>
