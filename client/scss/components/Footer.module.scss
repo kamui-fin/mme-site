@@ -2,6 +2,11 @@
 
 .footer {
     display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 590px) {
+      flex-direction: column;
+      padding: 0rem 0.5rem 0rem 0.5rem;
+    }
     justify-content: center;
     align-items: center;
     font-size: 14px;
@@ -10,11 +15,27 @@
     position: relative;
     background-color: $bg-light;
     color: $sub-light;
-    p{
-      padding: 10px 5px;
-    }
+    z-index: 9999;
+    padding: 0rem 0.5rem 1rem 0.5rem;
     span {
       color: $accent-primary;    
     }
-    z-index: 9999;
+    p{
+      margin-left: 1rem;
+      margin-top: 2em;
+    }
+}
+
+.col{
+  display: flex;
+  flex-direction: row;
+  p{
+    margin-left: 1rem;
+    margin-top: 2em;
+  }
+  @media screen and (max-width: 590px) {
+    p{
+      margin-top: 0.3em;
+    }
+  }
 }
