@@ -1,25 +1,22 @@
-.main {
-    max-width: 70rem;
-    margin: 0 auto;
+.blogContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 }
 
 .fibGrid {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex: 1;
-    align-items: center;
-}
-
-.first {
-    width: 66%;
-}
-
-.col {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 2rem;
+    @media screen and (min-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .card {
@@ -28,9 +25,16 @@
 }
 
 .articleGrid {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     margin-bottom: 2rem;
+    @media screen and (min-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .link {

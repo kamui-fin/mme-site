@@ -24,11 +24,10 @@ const Blog: NextPage = ({ articles }) => {
         </Link>
     )
     return (
-        <main className={styles.main}>
+        <div className={styles.blogContainer}>
             <BreadCrumbs path={[{name: "Home", href: "/"}, {name: "Articles", href: "/blog"}]}/>
             <h2 className={styles.title}>Latest Articles</h2>
             <div className={styles.fibGrid}>
-                {/* First three */}
                 <CardLink className={styles.first} article={latestThree[0]} />
                 <CardLink article={latestThree[1]} />
                 <CardLink article={latestThree[2]} />
@@ -39,7 +38,7 @@ const Blog: NextPage = ({ articles }) => {
                     <CardLink article={article} />
                 ))}
             </div>
-        </main>
+        </div>
     )
 }
 
