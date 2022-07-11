@@ -4,6 +4,7 @@ import ClockIcon from "../assets/clock.svg"
 import Moment from "react-moment"
 import moment from "moment"
 import { getStrapiMedia } from "lib/api-strapi/api"
+import { truncate } from "lib/utils"
 
 interface Props {
     className?: string
@@ -16,12 +17,9 @@ interface Props {
 export const ArticleCard = ({ title, image, date, duration, className }: Props) => {
     return (
         <div className={cx(styles.card, className)}>
-            <img
-                className={styles.image}
-                src={getStrapiMedia(image)}
-            />
+            <img className={styles.image} src={getStrapiMedia(image)} />
             <div className={styles.textPart}>
-                <h3 className={styles.title}>{title}</h3>
+                <h3 className={styles.title}>{truncate(title)}</h3>
                 <div className={styles.meta}>
                     <div className={styles.duration}>
                         <ClockIcon className={styles.icon} />
