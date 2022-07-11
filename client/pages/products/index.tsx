@@ -43,16 +43,18 @@ const Store: NextPage = ({ books, genres }) => {
     }
 
     const applyFilters = () => {
-        let newItems = books.filter(item => item.attributes.price >= pricingRange.min  && item.attributes.price <= pricingRange.max)
-        if (genreFilter.length !== 0) {
-            newItems = newItems.filter(item => genreFilter.includes(item.attributes.genre.data.attributes.name))
+        if(pricingRange.min <= pricingRange.max){
+            let newItems = books.filter(item => item.attributes.price >= pricingRange.min  && item.attributes.price <= pricingRange.max)
+            if (genreFilter.length !== 0) {
+                newItems = newItems.filter(item => genreFilter.includes(item.attributes.genre.data.attributes.name))
+            }
+            if (coverFilter !== "") {
+                newItems = newItems.filter(item => item.attributes.coverType === coverFilter.toLowerCase())
+            }
+            if (availFilter)
+                newItems = newItems.filter(item => item.attributes.availability === availFilter.toLowerCase())
+            setItems(newItems)
         }
-        if (coverFilter !== "") {
-            newItems = newItems.filter(item => item.attributes.coverType === coverFilter.toLowerCase())
-        }
-        if (availFilter)
-            newItems = newItems.filter(item => item.attributes.availability === availFilter.toLowerCase())
-        setItems(newItems)
     }
 
     return (
