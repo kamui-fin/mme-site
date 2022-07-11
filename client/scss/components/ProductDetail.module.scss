@@ -9,7 +9,9 @@
 
 .image {
     border-radius: 10px;
+    min-width: 350px;
     max-height: 500px;
+    object-fit: contain;
 }
 
 .title, .author, .price, .coverType, .descTitle {
