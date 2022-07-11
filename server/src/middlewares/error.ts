@@ -1,15 +1,17 @@
 import { ErrorRequestHandler } from "express"
-import { logger } from "../utils"
+// import { logger } from "../utils"
 
-export const errorHandler: ErrorRequestHandler = (err, _, res) => {
+export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
     const { httpCode, name, description } = err
-    logger.error(err)
+    console.error(err)
 
-    res.status(httpCode).send({
+    if (httpCode) res.status(httpCode)
+
+    res.send({
         ok: false,
         error: {
             name,
-            description
-        }
+            description,
+        },
     })
 }
