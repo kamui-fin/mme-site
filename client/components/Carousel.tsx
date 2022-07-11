@@ -35,26 +35,27 @@ export const Carousel = ({ className, count, width, children }: Props) => {
         <Slider
             beforeChange={handleBeforeChange}
             afterChange={handleAfterChange}
-            responsive={[{
+            responsive={[
+            {
                 breakpoint: 1600,
+                settings: {
+                    slidesToShow: 4
+                }
+            },
+            {
+                breakpoint: 1300,
                 settings: {
                     slidesToShow: 3
                 }
             },
             {
-                breakpoint: 1200,
+                breakpoint: 930,
                 settings: {
                     slidesToShow: 2
                 }
             },
             {
-                breakpoint: 850,
-                settings: {
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 576,
+                breakpoint: 630,
                 settings: {
                     slidesToShow: 1
                 }

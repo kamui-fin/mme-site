@@ -33,7 +33,7 @@ const Home: NextPage = ({ books, genres }) => {
             <div className={styles.bottomLanding}>
                 <section className={styles.books}>
                     <h3 className={styles.subtitle}>Book Selection</h3>
-                    <Carousel width={"60%"} count={4} children={listBooks} />
+                    <Carousel width={"80%"} count={4} children={listBooks} />
                 </section>
                 <section className={styles.genre}>
                     <h3 className={styles.subtitle}>Genres</h3>
