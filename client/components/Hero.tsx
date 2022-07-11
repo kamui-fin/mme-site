@@ -8,8 +8,8 @@ export const Hero = () => (
         <div className={styles.textContainer}>
             <h1 className={styles.title}>Tear the Curtain Between Languages</h1>
             <p className={styles.desc}>We are a publishing company specialized in translating and publishing books and other forms of written media to Spanish in order to make them more accessible to the world.</p>
-            <Link href="/products"><a href="/store"><Button btnType="secondary">Shop Now</Button></a></Link>
+            <Link href="/products"><a href="/products"><Button btnType="secondary">Shop Now</Button></a></Link>
         </div>
-        <LogoImage />
+        <LogoImage className={styles.image}/>
     </section>
 )

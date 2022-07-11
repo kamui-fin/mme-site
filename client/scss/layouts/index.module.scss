@@ -1,4 +1,5 @@
 @import "../abstracts/_variables.scss";
+@import "~rfs/scss";
 
 .bottomLanding {
     background-color: #111938;
@@ -9,6 +10,6 @@
 
 .subtitle {
     font-weight: 600;
-    font-size: 2rem;
+    @include font-size(2rem);
     text-align: center;
 }

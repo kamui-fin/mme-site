@@ -9,7 +9,7 @@ interface Props {
 const Layout = ({ children }: Props) => {
     return (
         <main className="app">
-            <Navbar />
+            {/* <Navbar /> */}
             {children}
             <Footer/>
         </main>

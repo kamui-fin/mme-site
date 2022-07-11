@@ -1,3 +1,5 @@
+@import "~rfs/scss";
+
 .hero {
     display: flex;
     flex-direction: row;
@@ -5,14 +7,22 @@
     align-items: center;
     gap: 5rem;
     margin: 3rem 0;
+    
 }
 
+.image {
+    display: none;
+    @media screen and (min-width: 700px) {
+        display: block;
+    }
+}
 .textContainer {
+    padding: 0 1.25rem;
     max-width: 42rem;
 }
 
 .title {
-    font-size: 4rem;
+    @include font-size(4rem);
     margin: 0;
 }
 
