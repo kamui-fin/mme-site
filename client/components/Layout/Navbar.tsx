@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
         <div className={styles.navlinks}>
             <div className={styles.navlogo}>
-                <Image src="/logo.png" width={398} height={52}/>
+            <Link href={"/"}><Image src="/logo.png" width={398} height={52}/></Link>
             </div>
             <div className={styles.navitem}>
                 <NavbarItem text="Home" url="/"/>
