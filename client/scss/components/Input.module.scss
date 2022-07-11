@@ -29,6 +29,13 @@
     background: #29335a;
     border: none;
     outline: none;
+
+    &::-webkit-input-placeholder{
+        color: $fg-icon;
+    }
+    &:-moz-placeholder {
+        color: $fg-icon;
+    }
 }
 
 .withIcon {

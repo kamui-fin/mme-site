@@ -49,7 +49,6 @@ export default Home
 export const getStaticProps = async (context): GetStaticProps => {
     const books = await fetchAPI("/products", { populate: ["image"] })
     const genres = await fetchAPI("/genres")
-    console.log(books, genres)
     return {
         props: {
             books: books.data,
