@@ -24,6 +24,7 @@
         "react-moment": "^1.1.2",
         "react-redux": "^8.0.2",
         "react-slick": "^0.29.0",
+        "rfs": "^9.0.6",
         "sass": "^1.53.0",
         "slick-carousel": "^1.8.1"
     },
