@@ -17,6 +17,12 @@ interface Props {
 }
 
 export const BookCard = ({ id, title, author, image, coverType, price, className }: Props) => {
+    const Truncate = (string : String) => {
+        if (string.length > 60)
+            return string.substring(0,60) +'...';
+        else
+            return string;
+    }
     return (
     <Link href={`/products/${id}`}>
         <div className={cx(styles.card, className)}>
@@ -25,7 +31,7 @@ export const BookCard = ({ id, title, author, image, coverType, price, className
                 src={getStrapiMedia(image)}
             />
             <div className={styles.textPart}>
-                <h3 className={styles.title}>{title}</h3>
+                <h3 className={styles.title}>{Truncate(title)}</h3>
                 <h5 className={styles.author}>{author}</h5>
                 <p className={styles.coverType}>{coverType}</p>
                 <div className={styles.bottom}>
