@@ -21,4 +21,10 @@
         margin: 0;
     }
     -moz-appearance: textfield;
+    &::-webkit-input-placeholder {
+        color: $fg-icon;
+    }
+    &:-moz-placeholder {
+        color: $fg-icon;
+    }
 }
