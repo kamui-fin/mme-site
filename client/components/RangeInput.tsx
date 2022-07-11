@@ -5,7 +5,7 @@ interface Props {
     onDone?: (min: number, max: number) => void
 }
 
-const NumberInput = ({ rangeType = "min", handler }: { rangeType?: "min" | "max"; handler: (num: number) => void }) => {
+const NumberInput = ({ rangeType = "min", handler, max }: { rangeType?: "min" | "max"; handler: (num: number) => void, max : number } ) => {
     const defaultValue = rangeType === "min" ? Number.MIN_VALUE : Number.MAX_VALUE
     const [num, setNum] = useState(defaultValue)
     const onKeyPress: KeyboardEventHandler = (evt) => {
@@ -21,6 +21,8 @@ const NumberInput = ({ rangeType = "min", handler }: { rangeType?: "min" | "max"
     return (
         <input
             type="number"
+            min={0}
+            max={max}
             className={styles.numberInput}
             onKeyPress={onKeyPress}
             onChange={onChange}
@@ -36,6 +38,7 @@ const RangeInput = ({ onDone }: Props) => {
     return (
         <div className={styles.rangeInput}>
             <NumberInput
+                max={max}
                 rangeType="min"
                 handler={(num) => {
                     setMin(num)
@@ -44,6 +47,7 @@ const RangeInput = ({ onDone }: Props) => {
             />
             <span>-</span>
             <NumberInput
+                max={max}
                 rangeType="max"
                 handler={(num) => {
                     setMax(num)
