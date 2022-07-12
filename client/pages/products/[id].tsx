@@ -29,10 +29,13 @@ const Product: NextPage = ({ book, related }) => {
                 />
                 <ProductDetail {...book.attributes} />
             </div>
+            {related.length !== 0 && 
+
             <div className={styles.related}>
                 <h1>You may also like</h1>
                 <Carousel width={"80%"} count={4} children={listCards} />
             </div>
+        }
         </div>
     )
 }
