@@ -2,6 +2,7 @@
 
 .container {
     display: flex;
+    min-width: 15rem;
 }
 
 .iconBox {
@@ -36,6 +37,9 @@
     color: $fg-icon;
     border: none;
     outline: none;
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+    }
 }
 
 .withIcon {
