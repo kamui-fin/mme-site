@@ -46,7 +46,7 @@ const Home: NextPage = ({ books, genres }) => {
 
 export default Home
 
-export const getStaticProps = async (context): GetStaticProps => {
+export const getStaticProps = async (context): GetStaticProps<> => {
     const books = await fetchAPI("/products", { populate: ["image"] })
     const genres = await fetchAPI("/genres")
     return {

@@ -11,7 +11,7 @@
         "sourceMap": true,
         "outDir": "./build",
         "moduleResolution": "node",
-        "strict": true,
+        "strict": false,
         "removeComments": false,
         "noImplicitAny": false,
         "strictNullChecks": true,

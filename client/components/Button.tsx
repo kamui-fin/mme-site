@@ -5,6 +5,7 @@ import styles from "scss/components/Button.module.scss"
 interface Props {
     btnType: "primary" | "secondary"
     children: React.ReactNode
+    onDone?: () => void
     className?: string
 }
 

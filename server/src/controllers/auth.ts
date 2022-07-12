@@ -42,7 +42,3 @@ export const login = catchAsync(async (req, res) => {
     }
     throw new ApiError("Invalid credentials", 400)
 })
-
-export const getCurrentUser = catchAsync(async (req, res) => {
-    res.status(200).send(req.user)
-})

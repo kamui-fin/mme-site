@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     images: {
         loader: "default",
         domains: ["localhost"],
@@ -10,8 +10,13 @@ const nextConfig = {
             test: /\.svg$/,
             use: ["@svgr/webpack"],
         })
-        console.log()
         return config
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+    typescript: {
+        ignoreBuildErrors: true,
     },
 }
 

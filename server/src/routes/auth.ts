@@ -1,6 +1,6 @@
 import { Joi, Segments } from "celebrate"
 import express from "express"
-import { register, login, getCurrentUser } from "../controllers/auth"
+import { register, login } from "../controllers/auth"
 import { validate } from "../utils"
 
 export const authRouter = express.Router()
@@ -25,4 +25,3 @@ authRouter.post(
         }),
     })
 )
-authRouter.get("/me", getCurrentUser)

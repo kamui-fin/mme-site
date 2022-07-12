@@ -24,7 +24,7 @@ export const ProductDetail = ({ title, author, image, coverType, price, descript
                 <h3 className={styles.title}>{title}</h3>
                 <h5 className={styles.author}>{author}</h5>
                 <p className={styles.coverType}>{coverType}</p>
-                <h3 className={styles.price}>${price}</h3>
+                <h3 className={styles.price}>€{price}</h3>
                 <div className={styles.btns}>
                     <Button btnType="secondary">Add to Cart</Button>
                     <IconButton icon={<Heart />} shape="square" color="primary" />

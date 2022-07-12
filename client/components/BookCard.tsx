@@ -27,7 +27,7 @@ export const BookCard = ({ id, title, author, image, coverType, price, className
                     <h5 className={styles.author}>{author}</h5>
                     <p className={styles.coverType}>{coverType}</p>
                     <div className={styles.bottom}>
-                        <h3 className={styles.price}>${price}</h3>
+                        <h3 className={styles.price}>€{price}</h3>
                         <div className={styles.btns}>
                             <IconButton icon={<Heart />} color="primary" />
                             <IconButton icon={<Cart />} color="secondary" />
