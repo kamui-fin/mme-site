@@ -27,7 +27,7 @@ First, open up [http://localhost:2337](http://localhost:2337) and sign up for a 
 - Catalog page
 
   - Filters based on genre, cover type, availability, and price range
-  - Search as you-type
+  - Search as you type
   - Sort A-Z, Z-A, or by pricing
 
 - More features planned
