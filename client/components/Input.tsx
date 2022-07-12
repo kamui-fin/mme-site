@@ -1,5 +1,5 @@
 import cx from "classnames"
-import { RegisterOptions, UseFormRegisterReturn } from "react-hook-form"
+import { UseFormRegisterReturn } from "react-hook-form"
 import styles from "scss/components/Input.module.scss"
 
 interface Props {
@@ -7,12 +7,12 @@ interface Props {
     onDone?: (text: string) => void
     placeholder?: string
     className?: string
-    phoneNumber?: boolean
     type?: "input" | "textarea"
     register?: UseFormRegisterReturn
+    valueType?: "email" | "tel" | "text"
 }
 
-export const Input = ({ icon, phoneNumber = false, register, onDone, type = "input", placeholder, className }: Props) => {
+export const Input = ({ icon, valueType = "text", register, onDone, type = "input", placeholder, className }: Props) => {
     return (
         <div className={styles.container}>
             {icon && <div className={styles.iconBox}>{icon}</div>}
@@ -24,7 +24,8 @@ export const Input = ({ icon, phoneNumber = false, register, onDone, type = "inp
                     onChange={(ev) => {
                         onDone && onDone(ev.target.value)
                     }}
-                    type={phoneNumber ? "tel" : "text"}
+                    type={valueType}
+                    pattern={valueType === "tel" && "\\+[0-9] [0-9]{3}-[0-9]{3}-[0-9]{4}"}
                 />
             ) : (
                 <textarea
