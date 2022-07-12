@@ -33,6 +33,8 @@ export const Carousel = ({ className, count, width, children }: Props) => {
 
     return (<div style={{width: width, margin: "0px auto"}}>
         <Slider
+            autoplay={true}
+            autoplaySpeed={3000}
             beforeChange={handleBeforeChange}
             afterChange={handleAfterChange}
             responsive={[
