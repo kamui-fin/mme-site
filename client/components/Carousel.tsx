@@ -39,19 +39,19 @@ export const Carousel = ({ className, count, width, children }: Props) => {
             {
                 breakpoint: 1600,
                 settings: {
-                    slidesToShow: 4
+                    slidesToShow: count < 4 ? count : 4
                 }
             },
             {
                 breakpoint: 1300,
                 settings: {
-                    slidesToShow: 3
+                    slidesToShow: count < 3 ? count : 3
                 }
             },
             {
                 breakpoint: 930,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: count < 2 ? count : 2
                 }
             },
             {
