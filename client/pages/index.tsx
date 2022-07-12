@@ -33,7 +33,7 @@ const Home: NextPage = ({ books, genres }) => {
             <div className={styles.bottomLanding}>
                 <section className={styles.books}>
                     <h3 className={styles.subtitle}>Book Selection</h3>
-                    <Carousel width={"80%"} count={4} children={listBooks} />
+                    <Carousel width={"80%"} count={books.length >= 4 ? 4 : books.length} children={listBooks} />
                 </section>
                 <section className={styles.genre}>
                     <h3 className={styles.subtitle}>Genres</h3>
@@ -48,10 +48,11 @@ export default Home
 
 export const getServerSideProps = async (context): GetServerSideProps<> => {
     const books = await fetchAPI("/products", { populate: ["image"] })
+    const randomTen = books.data.sort(() => 0.5 - Math.random()).slice(0, 10)
     const genres = await fetchAPI("/genres")
     return {
         props: {
-            books: books.data,
+            books: randomTen,
             genres: genres.data,
         },
     }

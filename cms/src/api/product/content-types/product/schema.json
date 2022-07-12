@@ -31,8 +31,8 @@
     "coverType": {
       "type": "enumeration",
       "enum": [
-        "paperback",
-        "hardcover"
+        "Paperback",
+        "Hardcover"
       ],
       "required": true
     },
