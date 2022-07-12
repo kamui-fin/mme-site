@@ -32,7 +32,7 @@ const Article = ({ article }) => {
                     <span>{moment.duration(article.attributes.duration).humanize()}</span>
                 </span>
             </div>
-            <ReactMarkdown children={article.attributes.content} />
+            <ReactMarkdown className={styles.markdown} children={article.attributes.content} />
         </div>
     )
 }
