@@ -18,9 +18,22 @@
 }
 
 .primary {
+    border: none;
+    outline: none;
     background-color: $accent-primary;
 }
 
 .secondary {
+    border: none;
+    outline: none;
     background-color: $accent-secondary;
+}
+
+.active {
+    border: none;
+    outline: none;
+    background-color: $fg-white;
+    path {
+      fill: $accent-primary !important;
+    }
 }
