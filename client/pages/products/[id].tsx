@@ -41,9 +41,29 @@ export default Product
 
 export const getServerSideProps = async (context): GetServerSideProps => {
     const { id } = context.params
-    const book = await fetchAPI(`/products/${id}`, { populate: ["image"] })
-    // temporary
-    const related = await fetchAPI(`/products`, { populate: ["image"] })
+    const book = await fetchAPI(`/products/${id}`, { populate: ["image", "genre"] })
+    const related = await fetchAPI("/products", {
+        populate: ["image", "genre"],
+        filters: {
+            $or: [
+                {
+                    author: {
+                        $eq: book.data.attributes.author,
+                    },
+                },
+                {
+                    genre: {
+                        name: {
+                            $eq: book.data.attributes.genre.data.attributes.name,
+                        },
+                    },
+                },
+            ],
+            id: {
+                $ne: id,
+            },
+        },
+    })
     return {
         props: {
             book: book.data,
@@ -51,19 +71,3 @@ export const getServerSideProps = async (context): GetServerSideProps => {
         },
     }
 }
-
-// export const getStaticPaths = async () => {
-//     const books = await fetchAPI(`/products`)
-//     const ids = books.data.map(book => book.id)
-//     const paths = ids.map((id: number) => {
-//         return {
-//             params: {
-//                 id: id.toString()
-//             }
-//         }
-//     })
-//     return {
-//         paths,
-//         fallback: false
-//     }
-// }

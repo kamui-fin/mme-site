@@ -58,7 +58,6 @@
 .textarea,
 .phone {
     width: 100%;
-    margin-top: 0.2rem;
     @include font-size(0.95rem);
 }
 
@@ -72,8 +71,15 @@
 
 .label {
     font-weight: 500;
+    padding-bottom: 2rem;
 }
 
 .crumbs {
     margin-bottom: 1rem;
+}
+
+.group {
+    div {
+        margin-top: .2rem;
+    }
 }

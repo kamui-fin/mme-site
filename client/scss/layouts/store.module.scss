@@ -123,7 +123,7 @@
     @media screen and (min-width: 1600px) {
         grid-template-columns: repeat(4, 1fr);
     }
-    gap: 1rem;
+    gap: 2rem;
     animation-name: fadeInBottom;
     animation-duration: 1s;
     animation-fill-mode: both;

@@ -25,7 +25,7 @@ const Contact: NextPage = () => {
                 <h4 className={styles.subtitle}>Our friendly team would love to hear from you!</h4>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.name}>
-                        <div>
+                        <div className={styles.group}>
                             <label className={styles.label}>First Name</label>
                             <Input
                                 register={{ ...register("firstName", { required: true }) }}
@@ -33,7 +33,7 @@ const Contact: NextPage = () => {
                                 placeholder="First Name"
                             />
                         </div>
-                        <div>
+                        <div className={styles.group}>
                             <label className={styles.label}>Last Name</label>
                             <Input
                                 register={{ ...register("lastName", { required: false }) }}
@@ -42,7 +42,7 @@ const Contact: NextPage = () => {
                             />
                         </div>
                     </div>
-                    <div>
+                    <div className={styles.group}>
                         <label className={styles.label}>Email</label>
                         <Input
                             register={{ ...register("email", { required: true }) }}
@@ -50,7 +50,7 @@ const Contact: NextPage = () => {
                             placeholder="you@company.com"
                         />
                     </div>
-                    <div>
+                    <div className={styles.group}>
                         <label className={styles.label}>Phone Number</label>
                         <Input
                             register={{ ...register("phoneNumber", { required: false }) }}
@@ -59,7 +59,7 @@ const Contact: NextPage = () => {
                             phoneNumber
                         />
                     </div>
-                    <div>
+                    <div className={styles.group}>
                         <label className={styles.label}>Message</label>
                         <Input
                             register={{ ...register("msg", { required: true }) }}

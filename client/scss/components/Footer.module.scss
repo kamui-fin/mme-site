@@ -3,6 +3,7 @@
 .footer {
     display: flex;
     flex-direction: row;
+    margin-top: auto;
     @media screen and (max-width: 590px) {
         flex-direction: column;
         padding: 0rem 0.5rem 0rem 0.5rem;
@@ -34,8 +35,8 @@
         margin-top: 2em;
     }
     @media screen and (max-width: 590px) {
-        p{
-          margin-top: 0.3em;
+        p {
+            margin-top: 0.3em;
         }
     }
 }

@@ -35,6 +35,5 @@ export const getStrapiMedia = (media) => {
     }
     const { url } = media.data.attributes
     const imageUrl = url.startsWith("/") ? getStrapiURL(url) : url
-    console.log(imageUrl, url)
     return imageUrl
 }

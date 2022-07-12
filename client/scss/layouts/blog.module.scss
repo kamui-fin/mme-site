@@ -15,6 +15,9 @@
     gap: 2rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    animation-name: fadeInBottom;
+    animation-duration: 1s;
+    animation-fill-mode: both;
     @media screen and (min-width: 800px) {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -35,11 +38,24 @@
     margin-top: 1rem;
     margin-bottom: 2rem;
     gap: 2rem;
+    animation-name: fadeInBottom;
+    animation-duration: 1s;
+    animation-fill-mode: both;
     @media screen and (min-width: 800px) {
         grid-template-columns: repeat(2, 1fr);
     }
     @media screen and (min-width: 1200px) {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    to {
+        opacity: 1;
     }
 }
 
