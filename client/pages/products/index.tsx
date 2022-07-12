@@ -99,20 +99,6 @@ const Store: NextPage = ({ books, genres }) => {
                         ))}
                     </div>
                     <div className={styles.checkGroup}>
-                        <h3>Cover</h3>
-                        {["Paperback", "Hardcover", "Digital"].map((cv) => (
-                            <div>
-                                <Checkbox
-                                    checked={coverFilter === cv}
-                                    onDone={(checked) => {
-                                        setCoverFilter(checked ? cv : "")
-                                    }}
-                                />
-                                <label>{cv}</label>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.checkGroup}>
                         <h3>Availability</h3>
                         {["Pre-Order", "In-Stock"].map((av) => (
                             <div>
@@ -123,6 +109,20 @@ const Store: NextPage = ({ books, genres }) => {
                                     }}
                                 />
                                 <label>{av}</label>
+                            </div>
+                        ))}
+                    </div>
+                    <div className={styles.checkGroup}>
+                        <h3>Cover</h3>
+                        {["Paperback", "Hardcover", "Digital"].map((cv) => (
+                            <div>
+                                <Checkbox
+                                    checked={coverFilter === cv}
+                                    onDone={(checked) => {
+                                        setCoverFilter(checked ? cv : "")
+                                    }}
+                                />
+                                <label>{cv}</label>
                             </div>
                         ))}
                     </div>
