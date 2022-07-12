@@ -4,18 +4,21 @@ import { Carousel } from "components/Carousel"
 import { ProductDetail } from "components/ProductDetail"
 import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
 import styles from "scss/layouts/product.module.scss"
+import carousel from "scss/components/Carousel.module.scss"
 import { fetchAPI } from "lib/api-strapi/api"
 
 const Product: NextPage = ({ book, related }) => {
     const listCards = related.map((card) => (
-        <BookCard
-            id={card.id}
-            title={card.attributes.title}
-            author={card.attributes.author}
-            image={card.attributes.image}
-            coverType={"Paperback"}
-            price={card.attributes.price}
-        />
+        <div className={carousel.carouselItem}>
+            <BookCard
+                id={card.id}
+                title={card.attributes.title}
+                author={card.attributes.author}
+                image={card.attributes.image}
+                coverType={"Paperback"}
+                price={card.attributes.price}
+            />
+        </div>
     ))
     return (
         <div>
@@ -33,7 +36,7 @@ const Product: NextPage = ({ book, related }) => {
 
             <div className={styles.related}>
                 <h1>You may also like</h1>
-                <Carousel width={"80%"} count={4} children={listCards} />
+                <Carousel width={"80%"} count={related.length >= 4 ? 4 : related.length} children={listCards} />
             </div>
         }
         </div>
