@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     max-width: 23rem;
-    padding: 1rem;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -17,20 +16,20 @@
 
 .textPart {
     background: $bg-light;
-    padding: 0 .7rem .7rem;
+    padding: 0 0.7rem 0.7rem;
     border-radius: 0 0 5px 5px;
 }
 
 .title {
     font-weight: 500;
     font-size: 1.2rem;
-    margin: .8rem 0;
+    margin: 0.8rem 0;
 }
 
 .meta {
     display: flex;
     justify-content: space-between;
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 .duration {
@@ -44,5 +43,5 @@
 }
 
 .icon {
-    width: .7rem;
+    width: 0.7rem;
 }

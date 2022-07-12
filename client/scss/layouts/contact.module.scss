@@ -3,7 +3,9 @@
 .page {
     display: flex;
     flex-direction: row;
-    margin: 5rem auto 0 auto;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 0 1.5rem;
 }
 
@@ -24,7 +26,7 @@
 
 .title {
     @include font-size(4rem);
-    font-weight: 600;
+    font-weight: 700;
     margin: 0;
 }
 
