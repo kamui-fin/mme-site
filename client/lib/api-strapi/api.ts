@@ -9,6 +9,14 @@ export const getStrapiURL = (path = "") => {
     }
 }
 
+export const getProxyURL = (path = "") => {
+    if (process.env.NODE_ENV === "production") {
+        return `/cms${path}`
+    } else {
+        getStrapiURL(path)
+    }
+}
+
 export const fetchAPI = async (path: string, urlParamsObject = {}, options = {}) => {
     const mergedOptions = {
         headers: {

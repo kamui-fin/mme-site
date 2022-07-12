@@ -18,6 +18,12 @@ const nextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
+    rewrites: [
+        {
+            source: "/cms",
+            destination: process.env.STRAPI_URL,
+        },
+    ]
 }
 
 module.exports = nextConfig

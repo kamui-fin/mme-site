@@ -1,6 +1,13 @@
+@import "../abstracts/_variables.scss";
+
 .container {
     max-width: 60%;
     margin: 0 auto;
+
+    @media screen and (max-width: 750px) {
+        max-width: 100%;
+        padding: 2rem;
+    }
 }
 
 .title {
@@ -28,4 +35,147 @@
 
 .crumbs {
     margin-bottom: 2rem;
+}
+
+.markdown {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: larger;
+    line-height: 1.8rem;
+    margin-bottom: 5rem;
+
+    // markdown typography styles
+    // credits to gist: btbytes/7176022
+    a {
+        color: $accent-secondary;
+        text-decoration: underline;
+    }
+
+    hr {
+        display: block;
+        height: 2px;
+        border: 0;
+        border-bottom: 1px solid #d8def6;
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    em,
+    i {
+        font-style: italic;
+    }
+
+    dfn {
+        font-style: italic;
+    }
+
+    ins {
+        background: #ff9;
+        color: #000;
+        text-decoration: none;
+    }
+
+    mark {
+        background: #ff0;
+        color: #000;
+        font-style: italic;
+        font-weight: 700;
+    }
+
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    table th {
+        font-weight: 700;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #ccc;
+        padding: 6px 13px;
+    }
+
+    table tr {
+        border-top: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    table tr:nth-child(2n) {
+        background-color: #f8f8f8;
+    }
+
+    pre,
+    code,
+    tt {
+        font-size: 0.98em;
+        font-size: 1rem;
+        line-height: 19px;
+        font-family: monospace;
+    }
+
+    code,
+    tt {
+        margin: 0px;
+        padding: 2px;
+        white-space: nowrap;
+        background-color: $bg-light;
+        border-radius: 3px;
+    }
+
+    pre {
+        background-color: $bg-light;
+        overflow: auto;
+        padding: 10px 10px;
+        border-radius: 3px;
+    }
+
+    pre code,
+    pre tt {
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        white-space: pre;
+        border: none;
+        background: transparent;
+    }
+
+    blockquote {
+        color: #bac6f5;
+        margin: 0;
+        padding-left: 1em;
+        border-left: 0.2em #eee solid;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
