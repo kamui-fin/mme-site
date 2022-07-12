@@ -38,4 +38,3 @@ export const BookCard = ({ id, title, author, image, coverType, price, className
         </Link>
     )
 }
-

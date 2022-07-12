@@ -5,7 +5,7 @@ export const getStrapiURL = (path = "") => {
     if (process.env.NODE_ENV === "production") {
         return `${process.env.STRAPI_URL}/${path}`
     } else {
-        return  `http://localhost:1337${path}`
+        return `http://localhost:1337${path}`
     }
 }
 

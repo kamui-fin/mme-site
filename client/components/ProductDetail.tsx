@@ -19,7 +19,7 @@ interface Props {
 export const ProductDetail = ({ title, author, image, coverType, price, description, className }: Props) => {
     return (
         <div className={cx(styles.container, className)}>
-            <img className={styles.image}  src={getStrapiMedia(image)} />
+            <img className={styles.image} src={getStrapiMedia(image)} />
             <div className={styles.textPart}>
                 <h3 className={styles.title}>{title}</h3>
                 <h5 className={styles.author}>{author}</h5>

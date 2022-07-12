@@ -25,7 +25,7 @@ const Product: NextPage = ({book, related}) => {
             </div>
             <div className={styles.related}>
                 <h1>You may also like</h1>
-                <Carousel count={4} className={styles.bookCarousel} children={listCards} width={"60%"} />
+                <Carousel width={"80%"} count={4} children={listCards} />
             </div>
         </div>
     )
