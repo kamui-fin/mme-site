@@ -25,12 +25,6 @@ const Blog: NextPage = ({ articles }) => {
     )
     return (
         <div className={styles.blogContainer}>
-            <BreadCrumbs
-                path={[
-                    { name: "Home", href: "/" },
-                    { name: "Articles", href: "/blog" },
-                ]}
-            />
             <h2 className={styles.title}>Latest Articles</h2>
             <div className={styles.fibGrid}>
                 <CardLink className={styles.first} article={latestThree[0]} />

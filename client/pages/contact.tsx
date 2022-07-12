@@ -1,11 +1,9 @@
-import ContactImage from "assets/contact.svg"
-import BreadCrumbs from "components/BreadCrumbs"
 import Button from "components/Button"
 import { Input } from "components/Input"
 import { fetchAPI } from "lib/api-strapi/api"
 import type { NextPage } from "next"
 import { useForm } from "react-hook-form"
-import Image from 'next/image'
+import Image from "next/image"
 import styles from "scss/layouts/contact.module.scss"
 
 const Contact: NextPage = () => {
@@ -23,13 +21,6 @@ const Contact: NextPage = () => {
     return (
         <div className={styles.page}>
             <div className={styles.formContainer}>
-                <BreadCrumbs
-                    className={styles.crumbs}
-                    path={[
-                        { name: "Home", href: "/" },
-                        { name: "Contact", href: "/contact" },
-                    ]}
-                />
                 <h2 className={styles.title}>Get in touch</h2>
                 <h4 className={styles.subtitle}>Our friendly team would love to hear from you!</h4>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -82,7 +73,7 @@ const Contact: NextPage = () => {
                 </form>
             </div>
             <div className={styles.img}>
-                <Image src="/contact.png" width={460} height={588}/>
+                <Image src="/contact.png" width={460} height={588} />
             </div>
         </div>
     )

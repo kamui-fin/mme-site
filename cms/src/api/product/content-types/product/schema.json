@@ -32,7 +32,8 @@
       "type": "enumeration",
       "enum": [
         "Paperback",
-        "Hardcover"
+        "Hardcover",
+        "Digital"
       ],
       "required": true
     },

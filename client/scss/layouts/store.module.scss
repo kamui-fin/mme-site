@@ -124,6 +124,19 @@
         grid-template-columns: repeat(4, 1fr);
     }
     gap: 1rem;
+    animation-name: fadeInBottom;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .bookCard {
@@ -165,4 +178,3 @@
     margin: 0;
     padding-bottom: 2rem;
 }
-
