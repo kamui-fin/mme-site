@@ -3,19 +3,25 @@ import styles from "scss/components/IconButton.module.scss"
 
 interface Props {
     icon: React.ReactNode
-    color?: "primary" | "secondary"
+    color?: "primary" | "secondary" | "active"
     shape?: "circle" | "square"
     className?: string
+    onClick?: any
+    active?: boolean
 }
 
-export const IconButton = ({icon, shape = "circle", color = "primary", className}: Props) => {
+export const IconButton = ({active, onClick, icon, shape = "circle", color = "primary", className}: Props) => {
+    active ? color = "active" : null
     return (
-        <div className={className + " " + cx(styles.iconBtn, {
+        <button className={className + " " + cx(styles.iconBtn, {
             [styles.circle]: shape === "circle", 
             [styles.primary]: color === "primary",
             [styles.secondary]: color === "secondary",
-        })}>
+            [styles.active]: color === "active"
+        })}
+            onClick={onClick}
+        >
             {icon}
-        </div>
+        </button>
     )
 }
