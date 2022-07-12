@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next"
+import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
 import { Hero } from "components/Hero"
 import styles from "scss/layouts/index.module.scss"
 import carousel from "scss/components/Carousel.module.scss"
@@ -46,7 +46,7 @@ const Home: NextPage = ({ books, genres }) => {
 
 export default Home
 
-export const getStaticProps = async (context): GetStaticProps<> => {
+export const getServerSideProps = async (context): GetServerSideProps<> => {
     const books = await fetchAPI("/products", { populate: ["image"] })
     const genres = await fetchAPI("/genres")
     return {

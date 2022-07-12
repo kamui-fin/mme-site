@@ -11,7 +11,11 @@ RUN yarn config set network-timeout 600000 -g && yarn install
 
 COPY . .
 
+RUN mkdir .tmp
+RUN cp /app/cms/init.db /app/cms/.tmp/data.db
+
 RUN yarn build
+RUN yarn cs import
 
 EXPOSE 1337
 

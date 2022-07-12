@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-host="strapi"
+host="$1"
 shift
 
 until curl -I "$host"; do

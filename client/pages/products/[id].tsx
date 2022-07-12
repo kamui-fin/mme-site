@@ -1,12 +1,12 @@
-import { BookCard } from 'components/BookCard'
-import BreadCrumbs from 'components/BreadCrumbs'
-import { Carousel } from 'components/Carousel'
-import { ProductDetail } from 'components/ProductDetail'
-import type { GetStaticProps, NextPage } from 'next'
+import { BookCard } from "components/BookCard"
+import BreadCrumbs from "components/BreadCrumbs"
+import { Carousel } from "components/Carousel"
+import { ProductDetail } from "components/ProductDetail"
+import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
 import styles from "scss/layouts/product.module.scss"
-import { fetchAPI } from 'lib/api-strapi/api'
+import { fetchAPI } from "lib/api-strapi/api"
 
-const Product: NextPage = ({book, related}) => {
+const Product: NextPage = ({ book, related }) => {
     const listCards = related.map((card) => (
         <BookCard
             id={card.id}
@@ -20,8 +20,14 @@ const Product: NextPage = ({book, related}) => {
     return (
         <div>
             <div className={styles.detailContainer}>
-                <BreadCrumbs className={styles.breadcrumbs} path={[{name: "Home", href: "/"}, {name: "Store", href: "/products"}]}/>
-                <ProductDetail {...book.attributes}/>
+                <BreadCrumbs
+                    className={styles.breadcrumbs}
+                    path={[
+                        { name: "Home", href: "/" },
+                        { name: "Store", href: "/products" },
+                    ]}
+                />
+                <ProductDetail {...book.attributes} />
             </div>
             <div className={styles.related}>
                 <h1>You may also like</h1>
@@ -33,31 +39,31 @@ const Product: NextPage = ({book, related}) => {
 
 export default Product
 
-export const getStaticProps = async (context): GetStaticProps => {
-    const {id} = context.params
+export const getServerSideProps = async (context): GetServerSideProps => {
+    const { id } = context.params
     const book = await fetchAPI(`/products/${id}`, { populate: ["image"] })
     // temporary
     const related = await fetchAPI(`/products`, { populate: ["image"] })
     return {
         props: {
             book: book.data,
-            related: related.data
-        }
+            related: related.data,
+        },
     }
 }
 
-export const getStaticPaths = async () => {
-    const books = await fetchAPI(`/products`)
-    const ids = books.data.map(book => book.id)
-    const paths = ids.map((id: number) => {
-        return {
-            params: {
-                id: id.toString()
-            }
-        }
-    })
-    return {
-        paths,
-        fallback: false
-    }
-}
+// export const getStaticPaths = async () => {
+//     const books = await fetchAPI(`/products`)
+//     const ids = books.data.map(book => book.id)
+//     const paths = ids.map((id: number) => {
+//         return {
+//             params: {
+//                 id: id.toString()
+//             }
+//         }
+//     })
+//     return {
+//         paths,
+//         fallback: false
+//     }
+// }

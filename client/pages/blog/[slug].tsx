@@ -12,7 +12,13 @@ const Article = ({ article }) => {
 
     return (
         <div className={styles.container}>
-            <BreadCrumbs className={styles.crumbs} path={[{name: "Home", href: "/"}, {name: "Articles", href: "/blog"}]}/>
+            <BreadCrumbs
+                className={styles.crumbs}
+                path={[
+                    { name: "Home", href: "/" },
+                    { name: "Articles", href: "/blog" },
+                ]}
+            />
             <div className={styles.meta}>
                 <img className={styles.articleImage} src={imageUrl} />
                 <h1 className={styles.title}>{article.attributes.title}</h1>
@@ -31,20 +37,7 @@ const Article = ({ article }) => {
     )
 }
 
-export async function getStaticPaths() {
-    const articlesRes = await fetchAPI("/articles", { fields: ["slug"] })
-
-    return {
-        paths: articlesRes.data.map((article) => ({
-            params: {
-                slug: article.attributes.slug,
-            },
-        })),
-        fallback: false,
-    }
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     const articlesRes = await fetchAPI("/articles", {
         filters: {
             slug: params.slug,
@@ -53,8 +46,20 @@ export async function getStaticProps({ params }) {
     })
     return {
         props: { article: articlesRes.data[0] },
-        revalidate: 1,
     }
 }
+
+// export async function getStaticPaths() {
+//     const articlesRes = await fetchAPI("/articles", { fields: ["slug"] })
+
+//     return {
+//         paths: articlesRes.data.map((article) => ({
+//             params: {
+//                 slug: article.attributes.slug,
+//             },
+//         })),
+//         fallback: false,
+//     }
+// }
 
 export default Article

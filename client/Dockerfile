@@ -11,7 +11,7 @@ RUN yarn install --frozen-lockfile
 
 COPY . .
 
-RUN ./wait-for-strapi.sh yarn build
+RUN yarn build
 
 EXPOSE 3000
 

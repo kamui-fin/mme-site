@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const getStrapiURL = (path = "") => {
     if (process.env.NODE_ENV === "production") {
-        return `${process.env.STRAPI_URL}/${path}`
+        return `${process.env.STRAPI_URL}${path}`
     } else {
         return `http://localhost:1337${path}`
     }
@@ -35,5 +35,6 @@ export const getStrapiMedia = (media) => {
     }
     const { url } = media.data.attributes
     const imageUrl = url.startsWith("/") ? getStrapiURL(url) : url
+    console.log(imageUrl, url)
     return imageUrl
 }
