@@ -1,7 +1,7 @@
 import Moment from "react-moment"
 import moment from "moment"
 import ReactMarkdown from "react-markdown"
-import { fetchAPI, getStrapiMedia } from "lib/api-strapi/api"
+import { fetchAPI, getStrapiMedia } from "lib/strapi"
 import BookOutline from "assets/book-outline.svg"
 import ClockOutline from "assets/clock-outline.svg"
 import styles from "scss/layouts/article.module.scss"

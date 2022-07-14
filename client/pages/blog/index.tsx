@@ -1,5 +1,5 @@
 import { ArticleCard } from "components/ArticleCard"
-import { fetchAPI } from "lib/api-strapi/api"
+import { fetchAPI } from "lib/strapi"
 import cx from "classnames"
 import type { NextPage } from "next"
 import Link from "next/link"

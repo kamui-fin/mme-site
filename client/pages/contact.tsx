@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Button from "components/Button"
 import { Input } from "components/Input"
-import { fetchAPI } from "lib/api-strapi/api"
+import { fetchAPI } from "lib/strapi"
 import type { NextPage } from "next"
 import { useForm } from "react-hook-form"
 import Image from "next/image"

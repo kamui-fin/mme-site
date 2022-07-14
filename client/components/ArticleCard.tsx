@@ -3,7 +3,7 @@ import styles from "scss/components/ArticleCard.module.scss"
 import ClockIcon from "../assets/clock.svg"
 import Moment from "react-moment"
 import moment from "moment"
-import { getStrapiMedia } from "lib/api-strapi/api"
+import { getStrapiMedia } from "lib/strapi"
 import { truncate } from "lib/utils"
 
 interface Props {

@@ -1,11 +1,11 @@
-import { LoginForm } from "components/LoginForm"
+import { RegisterForm } from "components/RegisterForm"
 import styles from "scss/layouts/login-register.module.scss"
 import type { NextPage } from "next"
 
 const Login: NextPage = () => {
     return (
         <div>
-            <LoginForm className={styles.loginForm}/>
+            <RegisterForm className={styles.loginForm}/>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import { ProductDetail } from "components/ProductDetail"
 import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
 import styles from "scss/layouts/product.module.scss"
 import carousel from "scss/components/Carousel.module.scss"
-import { fetchAPI } from "lib/api-strapi/api"
+import { fetchAPI } from "lib/strapi"
 
 const Product: NextPage = ({ book, related }) => {
     const listCards = related.map((card) => (

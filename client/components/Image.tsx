@@ -1,4 +1,4 @@
-import { getStrapiMedia } from "lib/api-strapi/api";
+import { getStrapiMedia } from "lib/strapi";
 import NextImage from "next/image"
 
 export const Image = ({ image, className = "" }) => {

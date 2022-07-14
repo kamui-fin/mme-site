@@ -5,7 +5,7 @@ import carousel from "scss/components/Carousel.module.scss"
 import { Carousel } from "components/Carousel"
 import { BookCard } from "components/BookCard"
 import { IconTextCard } from "components/IconTextCard"
-import { fetchAPI } from "lib/api-strapi/api"
+import { fetchAPI } from "lib/strapi"
 
 const Home: NextPage = ({ books, genres }) => {
     const listGenres = genres.map((genre) => (

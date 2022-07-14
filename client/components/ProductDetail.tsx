@@ -4,7 +4,7 @@ import Heart from "../assets/heart-filled.svg"
 import { IconButton } from "./IconButton"
 import { Description } from "./Description"
 import Button from "./Button"
-import { getStrapiMedia } from "lib/api-strapi/api"
+import { getStrapiMedia } from "lib/strapi"
 import { useState } from "react"
 
 interface Props {

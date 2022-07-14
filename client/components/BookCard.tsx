@@ -3,7 +3,7 @@ import styles from "scss/components/BookCard.module.scss"
 import Heart from "../assets/heart-filled.svg"
 import Cart from "../assets/cart-filled.svg"
 import { IconButton } from "./IconButton"
-import { getStrapiMedia } from "lib/api-strapi/api"
+import { getStrapiMedia } from "lib/strapi"
 import { truncate } from "lib/utils"
 import Link from "next/link"
 

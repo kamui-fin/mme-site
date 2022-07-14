@@ -1,15 +1,15 @@
-import React from "react"
+import React, { ButtonHTMLAttributes } from "react"
 import cx from "classnames"
 import styles from "scss/components/Button.module.scss"
 
-interface Props {
-    btnType: "primary" | "secondary"
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    btnType?: "primary" | "secondary"
     children: React.ReactNode
     onDone?: () => void
     className?: string
 }
 
-const Button = ({ btnType = "primary", className, children, onDone }: Props) => {
+const Button = ({ btnType = "primary", className, children, onDone, ...rest }: Props) => {
     return (
         <button
             className={cx(styles.btn, className, {
@@ -17,6 +17,7 @@ const Button = ({ btnType = "primary", className, children, onDone }: Props) => 
                 [styles.secondary]: btnType === "secondary",
             })}
             onClick={onDone}
+            {...rest}
         >
             {children}
         </button>
