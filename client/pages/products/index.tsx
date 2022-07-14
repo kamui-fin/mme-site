@@ -1,4 +1,3 @@
-import BreadCrumbs from "components/BreadCrumbs"
 import { Input } from "components/Input"
 import type { NextPage } from "next"
 import SearchIcon from "assets/search.svg"
@@ -25,8 +24,13 @@ const Store: NextPage = ({ books, genres }) => {
     const [coverFilter, setCoverFilter] = useState("")
     const [availFilter, setAvailFilter] = useState("")
     const [toggle, setToggle] = useState(false)
+    const [width, setWidth] = useState(0)
     const dynamicRoute = useRouter().asPath
-    useEffect(() => setToggle(false), [dynamicRoute])
+    const componentRef = useRef(null)
+
+    useEffect(() => {
+        setWidth(componentRef.current.getBoundingClientRect().width)
+    })
 
     const searchSort = () => {
         let res = items
@@ -66,75 +70,15 @@ const Store: NextPage = ({ books, genres }) => {
         }
     }
 
-    const mobileColumn = () => {
-        return (
-            <aside className={styles.filterMobile} style={{ display: toggle ? "flex" : "none" }}>
-                <button className={styles.close} onClick={() => applyFilters()}>
-                    <Image src="/close.png" width={48} height={48} />
-                </button>
-                <div className={styles.mobileWrapper}>
-                    <div>
-                        <h3>Price €</h3>
-                        <RangeInput
-                            onDone={(min, max) => {
-                                setPricingRange({ min, max })
-                            }}
-                        />
-                    </div>
-                    <div className={styles.checkGroup}>
-                        <h3>Genre</h3>
-                        {genres.map((genre) => (
-                            <div>
-                                <Checkbox
-                                    onDone={(checked) => {
-                                        if (!checked) {
-                                            setGenreFilter(genreFilter.filter((g: string) => g !== genre))
-                                        } else {
-                                            setGenreFilter([...genreFilter, genre])
-                                        }
-                                    }}
-                                />
-                                <label>{genre}</label>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.checkGroup}>
-                        <h3>Availability</h3>
-                        {["Pre-Order", "In-Stock"].map((av) => (
-                            <div>
-                                <Checkbox
-                                    checked={availFilter === av}
-                                    onDone={(checked) => {
-                                        setAvailFilter(checked ? av : "")
-                                    }}
-                                />
-                                <label>{av}</label>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.checkGroup}>
-                        <h3>Cover</h3>
-                        {["Paperback", "Hardcover", "Digital"].map((cv) => (
-                            <div>
-                                <Checkbox
-                                    checked={coverFilter === cv}
-                                    onDone={(checked) => {
-                                        setCoverFilter(checked ? cv : "")
-                                    }}
-                                />
-                                <label>{cv}</label>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </aside>
-        )
-    }
-
     const filterColumn = () => {
         return (
             <div className={styles.filterCol}>
-                <aside className={styles.filterBar}>
+                <aside className={styles.filterBar} style={{ display: width < 1300 ? (toggle ? "grid" : "none") : "" }}>
+                    {toggle ? (
+                        <button className={styles.close} onClick={() => applyFilters()}>
+                            <Image src="/close.png" width={48} height={48} />
+                        </button>
+                    ) : null}
                     <div>
                         <h3>Price €</h3>
                         <RangeInput
@@ -142,23 +86,6 @@ const Store: NextPage = ({ books, genres }) => {
                                 setPricingRange({ min, max })
                             }}
                         />
-                    </div>
-                    <div className={styles.checkGroup}>
-                        <h3>Genre</h3>
-                        {genres.map((genre) => (
-                            <div>
-                                <Checkbox
-                                    onDone={(checked) => {
-                                        if (!checked) {
-                                            setGenreFilter(genreFilter.filter((g: string) => g !== genre))
-                                        } else {
-                                            setGenreFilter([...genreFilter, genre])
-                                        }
-                                    }}
-                                />
-                                <label>{genre}</label>
-                            </div>
-                        ))}
                     </div>
                     <div className={styles.checkGroup}>
                         <h3>Cover</h3>
@@ -188,25 +115,36 @@ const Store: NextPage = ({ books, genres }) => {
                             </div>
                         ))}
                     </div>
-                    <Button btnType="secondary" onDone={applyFilters}>
-                        Apply Filter
-                    </Button>
+                    <div className={styles.checkGroup}>
+                        <h3>Genre</h3>
+                        {genres.map((genre) => (
+                            <div>
+                                <Checkbox
+                                    onDone={(checked) => {
+                                        if (!checked) {
+                                            setGenreFilter(genreFilter.filter((g: string) => g !== genre))
+                                        } else {
+                                            setGenreFilter([...genreFilter, genre])
+                                        }
+                                    }}
+                                />
+                                <label>{genre}</label>
+                            </div>
+                        ))}
+                    </div>
+                    {!toggle ? (
+                        <Button btnType="secondary" onDone={applyFilters}>
+                            Apply Filter
+                        </Button>
+                    ) : null}
                 </aside>
             </div>
         )
     }
-
     return (
-        <div className={styles.store}>
+        <div className={styles.store} ref={componentRef}>
             {filterColumn()}
-            {mobileColumn()}
             <section className={styles.mainContainer}>
-                {/* <BreadCrumbs
-                    path={[
-                        { name: "Home", href: "/" },
-                        { name: "Store", href: "/products" },
-                    ]}
-                /> */}
                 <h1 className={styles.catalogTitle}>Catalog</h1>
                 <div className={styles.searchSort}>
                     <Input icon={<SearchIcon />} placeholder="Search" onDone={(text) => setQuery(text)} />

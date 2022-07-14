@@ -5,7 +5,7 @@ import type { NextPage } from "next"
 const Login: NextPage = () => {
     return (
         <div>
-            <RegisterForm className={styles.loginForm}/>
+            <RegisterForm className={styles.loginForm} />
         </div>
     )
 }
