@@ -5,15 +5,14 @@ import Image from 'next/image'
 import NavbarItem from "./NavbarItem"
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/router"
-
+import CartDrawer from "components/CartDrawer"
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
-
+    const [cartToggle, setCartToggle] = useState(false)
     const dynamicRoute = useRouter().asPath;
 
     useEffect(() => setToggle(false), [dynamicRoute]);
-
     return (
     <>
     <div className={styles.navbar}>
@@ -29,7 +28,7 @@ const Navbar = () => {
                 <NavbarItem text="Contact" url="/contact"/>
             </div>
             <div className={styles.navitem} style={{justifyContent: "center"}}>
-                <Link href={"/cart"}><a href="/cart"><Button className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/></a></Link>
+            <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/>
                 <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link>
             </div>
             <div className={styles.navhamburger}>
@@ -37,7 +36,8 @@ const Navbar = () => {
             </div>
         </div>
     </div>
-    <div className={styles.drawer} style={{display: toggle == true ? "flex" : "none"}}>
+    <CartDrawer setCartToggle={setCartToggle} cartToggle={cartToggle}/>
+    <div className={styles.drawer} style={{display: toggle ? "flex" : "none"}}>
         <div className={styles.drawerContainer} style={{display: toggle ? "flex" : "none"}}>
             <div >
             <NavbarItem text="Home" url="/"/>
@@ -46,7 +46,7 @@ const Navbar = () => {
             <NavbarItem text="Blog" url="/blog"/>
             <NavbarItem text="Contact" url="/contact"/>
             </div>
-            <Link href={"/cart"}><a href="/cart"><Button className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/></a></Link>
+            <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/>
             <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link>
         </div>
     </div>
