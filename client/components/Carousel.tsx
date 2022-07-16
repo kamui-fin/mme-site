@@ -14,18 +14,15 @@ export const Carousel = ({ className, count, width, children }: Props) => {
     const [dragging, setDragging] = useState(false)
 
     const handleBeforeChange = useCallback(() => {
-        console.log('handleBeforeChange')
         setDragging(true)
     }, [setDragging])
 
     const handleAfterChange = useCallback(() => {
-        console.log('handleAfterChange')
         setDragging(false)
     }, [setDragging])
 
     const handleOnItemClick = useCallback(
         e => {
-            console.log('handleOnItemClick')
             if (dragging) e.stopPropagation()
         },
         [dragging]
