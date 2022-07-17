@@ -39,13 +39,13 @@ const Store: NextPage = ({ books, genres }) => {
         }
         if (sorting !== "") {
             switch (sorting) {
-                case "Name A-Z":
+                case "Nombre A-Z":
                     res = res.sort((a, b) => a.attributes.title.localeCompare(b.attributes.title))
                     break
-                case "Name Z-A":
+                case "Nombre Z-A":
                     res = res.sort((a, b) => b.attributes.title.localeCompare(a.attributes.title))
                     break
-                case "Pricing":
+                case "Precios":
                     res = res.sort((a, b) => a.attributes.price - b.attributes.price)
                     break
             }
@@ -80,7 +80,7 @@ const Store: NextPage = ({ books, genres }) => {
                         </button>
                     ) : null}
                     <div>
-                        <h3>Price €</h3>
+                        <h3>Precio €</h3>
                         <RangeInput
                             onDone={(min, max) => {
                                 setPricingRange({ min, max })
@@ -88,7 +88,7 @@ const Store: NextPage = ({ books, genres }) => {
                         />
                     </div>
                     <div className={styles.checkGroup}>
-                        <h3>Cover</h3>
+                        <h3>Tapa Del Libro</h3>
                         {["Paperback", "Hardcover", "Digital"].map((cv) => (
                             <div>
                                 <Checkbox
@@ -102,8 +102,8 @@ const Store: NextPage = ({ books, genres }) => {
                         ))}
                     </div>
                     <div className={styles.checkGroup}>
-                        <h3>Availability</h3>
-                        {["Pre-Order", "In-Stock"].map((av) => (
+                        <h3>Disponibilidad</h3>
+                        {["Agotado", "En stock"].map((av) => (
                             <div>
                                 <Checkbox
                                     checked={availFilter === av}
@@ -116,7 +116,7 @@ const Store: NextPage = ({ books, genres }) => {
                         ))}
                     </div>
                     <div className={styles.checkGroup}>
-                        <h3>Genre</h3>
+                        <h3>Género</h3>
                         {genres.map((genre) => (
                             <div>
                                 <Checkbox
@@ -134,7 +134,7 @@ const Store: NextPage = ({ books, genres }) => {
                     </div>
                     {!toggle ? (
                         <Button btnType="secondary" onDone={applyFilters}>
-                            Apply Filter
+                            Aplicar Filtro
                         </Button>
                     ) : null}
                 </aside>
@@ -145,12 +145,12 @@ const Store: NextPage = ({ books, genres }) => {
         <div className={styles.store} ref={componentRef}>
             {filterColumn()}
             <section className={styles.mainContainer}>
-                <h1 className={styles.catalogTitle}>Catalog</h1>
+                <h1 className={styles.catalogTitle}>Catalogar</h1>
                 <div className={styles.searchSort}>
-                    <Input icon={<SearchIcon />} placeholder="Search" onDone={(text) => setQuery(text)} />
+                    <Input icon={<SearchIcon />} placeholder="Búsqueda" onDone={(text) => setQuery(text)} />
                     <Select
                         icon={<SortIcon />}
-                        items={["Name A-Z", "Name Z-A", "Pricing"]}
+                        items={["Nombre A-Z", "Nombre Z-A", "Precios"]}
                         onDone={(option) => {
                             setSorting(option)
                         }}

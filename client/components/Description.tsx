@@ -17,7 +17,7 @@ export const Description = ({ desc }: Props) => {
                 </div>
                 {tooBig && (
                     <p className={styles.readMore} onClick={() => setCollapsed(!collapsed)}>
-                        {collapsed ? "Read more" : "Read less"}
+                        {collapsed ? "Leer más" : "Leer menos"}
                     </p>
                 )}
             </>

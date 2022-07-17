@@ -10,14 +10,12 @@ const About: NextPage = () => {
             <h1 className={styles.title}>About Us</h1>
             <h3 className={styles.subtitle}>Our mission</h3>
             <p className={styles.para}>
-                We are a team of various people who have sought to bridge the gap between languages and cultures and bring
-                awesome new titles, too often neglected by other publishing companies in Spain. Our task is to improve the
-                catalogue of books avaiable in Spanish and to provide a service where there's a demand for it.
+            Somos un equipo de varias personas que han buscado cerrar la brecha entre idiomas y culturas y traer nuevos títulos increíbles, muchas veces descuidados por otras editoriales en España. Nuestra tarea es mejorar el catálogo de libros disponibles en español y brindar un servicio donde haya demanda.
             </p>
             <Link href="/contact">
                 <a>
                     <Button className={styles.contactBtn} btnType="primary">
-                        Get in touch
+                      Contacto
                     </Button>
                 </a>
             </Link>

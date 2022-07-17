@@ -21,7 +21,7 @@ const Home: NextPage = ({ books, genres }) => {
                 title={book.attributes.title}
                 author={book.attributes.author}
                 image={book.attributes.image}
-                coverType={"Paperback"}
+                coverType={book.attributes.coverType}
                 price={book.attributes.price}
             />
         </div>
@@ -32,11 +32,11 @@ const Home: NextPage = ({ books, genres }) => {
             <Hero />
             <div className={styles.bottomLanding}>
                 <section className={styles.books}>
-                    <h3 className={styles.subtitle}>Book Selection</h3>
+                    <h3 className={styles.subtitle}>Selección de libros</h3>
                     <Carousel width={"80%"} count={books.length >= 4 ? 4 : books.length} children={listBooks} />
                 </section>
                 <section className={styles.genre}>
-                    <h3 className={styles.subtitle}>Genres</h3>
+                    <h3 className={styles.subtitle}>Géneros</h3>
                     <Carousel width={"60%"} count={5} children={listGenres} />
                 </section>
             </div>

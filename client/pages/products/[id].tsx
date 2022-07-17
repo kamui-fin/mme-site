@@ -15,7 +15,7 @@ const Product: NextPage = ({ book, related }) => {
                 title={card.attributes.title}
                 author={card.attributes.author}
                 image={card.attributes.image}
-                coverType={"Paperback"}
+                coverType={book.attributes.coverType}
                 price={card.attributes.price}
             />
         </div>
@@ -35,7 +35,7 @@ const Product: NextPage = ({ book, related }) => {
             {related.length !== 0 && 
 
             <div className={styles.related}>
-                <h1>You may also like</h1>
+                <h1>También te puede gustar</h1>
                 <Carousel width={"80%"} count={related.length >= 4 ? 4 : related.length} children={listCards} />
             </div>
         }
