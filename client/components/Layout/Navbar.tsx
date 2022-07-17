@@ -28,8 +28,8 @@ const Navbar = () => {
                 <NavbarItem text="Contact" url="/contact"/>
             </div>
             <div className={styles.navitem} style={{justifyContent: "center"}}>
-            <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/>
-                <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link>
+            {/* <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/> */}
+                {/* <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link> */}
             </div>
             <div className={styles.navhamburger}>
                 <button onClick={() => setToggle(!toggle)}><Image src={toggle ? "/close.png" : "/hamburger.png"} width={48} height={48}/></button>
@@ -46,8 +46,8 @@ const Navbar = () => {
             <NavbarItem text="Blog" url="/blog"/>
             <NavbarItem text="Contact" url="/contact"/>
             </div>
-            <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/>
-            <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link>
+            {/* <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/> */}
+            {/* <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link> */}
         </div>
     </div>
     </>

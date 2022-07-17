@@ -28,8 +28,7 @@ export const ProductDetail = ({ title, author, image, coverType, price, descript
                 <p className={styles.coverType}>{coverType}</p>
                 <h3 className={styles.price}>€{price}</h3>
                 <div className={styles.btns}>
-                    <Button btnType="secondary">Add to Cart</Button>
-                    <IconButton onClick={() => setToggle(!toggle)} active={toggle} icon={<Heart />} shape="square" color="primary" />
+                    <Button btnType="secondary">Buy Book</Button>
                 </div>
                 <h3 className={styles.descTitle}>Description</h3>
                 <Description desc={description} />
