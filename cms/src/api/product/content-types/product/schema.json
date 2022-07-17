@@ -60,6 +60,10 @@
         "pre-order",
         "in-stock"
       ]
+    },
+    "purchaseLink": {
+      "type": "string",
+      "required": true
     }
   }
 }

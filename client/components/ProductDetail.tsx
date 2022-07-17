@@ -16,10 +16,10 @@ interface Props {
     image: string
     coverType: "Paperback" | "Hardcover"
     price: number
-    purchase: string
+    purchaseLink: string
 }
 
-export const ProductDetail = ({ purchase, title, author, image, coverType, price, description, className }: Props) => {
+export const ProductDetail = ({ purchaseLink, title, author, image, coverType, price, description, className }: Props) => {
     const [toggle, setToggle] = useState(false)
     return (
         <div className={cx(styles.container, className)}>
@@ -30,7 +30,11 @@ export const ProductDetail = ({ purchase, title, author, image, coverType, price
                 <p className={styles.coverType}>{coverType}</p>
                 <h3 className={styles.price}>€{price}</h3>
                 <div className={styles.btns}>
-                <Link href={purchase} passHref={true}><Button btnType="secondary">Buy Book</Button></Link>
+                    <Link href={purchaseLink} passHref={true}>
+                        <a>
+                            <Button btnType="secondary">Buy Book</Button>
+                        </a>
+                    </Link>
                 </div>
                 <h3 className={styles.descTitle}>Description</h3>
                 <Description desc={description} />
