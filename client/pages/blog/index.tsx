@@ -26,13 +26,13 @@ const Blog: NextPage = ({ articles }) => {
         <div className={styles.blogContainer}>
             {articles.length > 0 ? (
                 <>
-                    <h2 className={styles.title}>Latest Articles</h2>
+                    <h2 className={styles.title}>Artículos Recientes</h2>
                     <div className={styles.fibGrid}>
                         <CardLink className={styles.first} article={latestThree[0]} />
                         <CardLink article={latestThree[1]} />
                         <CardLink article={latestThree[2]} />
                     </div>
-                    <h2 className={styles.title}>All Articles</h2>
+                    <h2 className={styles.title}>Todos Los Artículos</h2>
                     <div className={styles.articleGrid}>
                         {rest.map((article) => (
                             <CardLink article={article} />

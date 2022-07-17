@@ -39,7 +39,7 @@ const RangeInput = ({ onDone }: Props) => {
         <div className={styles.rangeInput}>
             <NumberInput
                 max={max}
-                rangeType="min"
+                rangeType="mín"
                 handler={(num) => {
                     setMin(num)
                     onDone && onDone(num, max)
@@ -48,7 +48,7 @@ const RangeInput = ({ onDone }: Props) => {
             <span>-</span>
             <NumberInput
                 max={max}
-                rangeType="max"
+                rangeType="máx"
                 handler={(num) => {
                     setMax(num)
                     onDone && onDone(min, num)

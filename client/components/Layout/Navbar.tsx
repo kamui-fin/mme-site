@@ -21,11 +21,11 @@ const Navbar = () => {
             <Link href={"/"}><Image src="/logo.png" width={398} height={52}/></Link>
             </div>
             <div className={styles.navitem}>
-                <NavbarItem text="Home" url="/"/>
-                <NavbarItem text="Store" url="/products"/>
-                <NavbarItem text="About" url="/about"/>
+                <NavbarItem text="Hogar" url="/"/>
+                <NavbarItem text="Tienda" url="/products"/>
+                <NavbarItem text="Sobre" url="/about"/>
                 <NavbarItem text="Blog" url="/blog"/>
-                <NavbarItem text="Contact" url="/contact"/>
+                <NavbarItem text="Contacto" url="/contact"/>
             </div>
             <div className={styles.navitem} style={{justifyContent: "center"}}>
             {/* <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/> */}

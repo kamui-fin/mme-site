@@ -6,9 +6,9 @@ import Link from "next/link"
 export const Hero = () => (
     <section className={styles.hero}>
         <div className={styles.textContainer}>
-            <h1 className={styles.title}>Tear the Curtain Between Languages</h1>
-            <p className={styles.desc}>We are a publishing company specialized in translating and publishing books and other forms of written media to Spanish in order to make them more accessible to the world.</p>
-            <Link href="/products"><a href="/products"><Button btnType="secondary">Shop Now</Button></a></Link>
+            <h1 className={styles.title}>Rasgar el telón entre idiomas</h1>
+            <p className={styles.desc}>Somos una editorial especializada en traducir y publicar libros y otros medios escritos al español para hacerlos más accesibles al mundo.</p>
+            <Link href="/products"><a href="/products"><Button btnType="secondary">Compra Ahora</Button></a></Link>
         </div>
         <LogoImage className={styles.image}/>
     </section>

@@ -15,8 +15,8 @@ const Article = ({ article }) => {
             <BreadCrumbs
                 className={styles.crumbs}
                 path={[
-                    { name: "Home", href: "/" },
-                    { name: "Articles", href: "/blog" },
+                    { name: "Hogar", href: "/" },
+                    { name: "Tienda", href: "/blog" },
                 ]}
             />
             <div className={styles.meta}>
