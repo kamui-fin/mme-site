@@ -1,4 +1,3 @@
-import { celebrate, Modes, SchemaOptions } from "celebrate"
 import { RequestHandler } from "express"
 import httpStatus from "http-status"
 import winston from "winston"
@@ -18,7 +17,7 @@ class BaseError extends Error {
 }
 
 export class ApiError extends BaseError {
-    constructor(description = "server encountered an error", httpCode = httpStatus.INTERNAL_SERVER) {
+    constructor(description = "Server encountered an error", httpCode = httpStatus.INTERNAL_SERVER) {
         super(description, httpCode)
     }
 }
@@ -70,4 +69,7 @@ export const catchAsync =
         Promise.resolve(fn(req, res, next)).catch((err) => next(err))
     }
 
-export const validate = (schema: SchemaOptions) => celebrate(schema, { abortEarly: false }, { mode: Modes.FULL })
+export const omit = (key, obj) => {
+    const { [key]: omitted, ...rest } = obj
+    return rest
+}

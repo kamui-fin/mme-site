@@ -1,6 +1,8 @@
 import React from "react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import { store } from "redux/store"
+import { Provider } from "react-redux"
 
 interface Props {
     children: React.ReactNode
@@ -8,11 +10,13 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
     return (
-        <main className="app">
-            <Navbar />
-            {children}
-            <Footer/>
-        </main>
+        <Provider store={store}>
+            <main className="app">
+                <Navbar />
+                {children}
+                <Footer />
+            </main>
+        </Provider>
     )
 }
 

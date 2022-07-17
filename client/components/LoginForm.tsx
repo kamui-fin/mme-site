@@ -1,36 +1,63 @@
 import cx from "classnames"
-import { http } from "lib/express-api"
+import { object, string, TypeOf } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { useEffect } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
 import styles from "scss/components/LoginRegisterForm.module.scss"
-import Alert from "./Alert"
+import { toast } from "react-toastify"
 import Button from "./Button"
 import { Input } from "./Input"
+import { useLoginUserMutation } from "redux/api/authApi"
 
 interface Props {
     className?: string
 }
+
+const loginSchema = object({
+    email: string(),
+    password: string(),
+})
+
+export type LoginInput = TypeOf<typeof loginSchema>
 
 export const LoginForm = ({ className }: Props) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm()
+    } = useForm<LoginInput>({
+        resolver: zodResolver(loginSchema),
+    })
     const router = useRouter()
-    const [error, setError] = useState("")
+    const [loginUser, { isLoading, isSuccess, error, isError }] = useLoginUserMutation()
 
-    const onSubmit = async (data) => {
-        try {
-            const res = await http.post("login", data)
-            window.localStorage.setItem("token", res.data.token)
-            router.push("/")
-        } catch (err) {
-            setError(err.response.status === 400 ? "Invalid credentials" : "Unable to login")
-        }
+    const onSubmit: SubmitHandler<LoginInput> = async (data) => {
+        loginUser(data)
     }
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success("User registered successfully")
+            router.push("/")
+        }
+
+        if (isError) {
+            console.log(error)
+            if (Array.isArray((error as any).data.error)) {
+                ;(error as any).data.error.forEach((el: any) =>
+                    toast.error(el.message, {
+                        position: "top-right",
+                    })
+                )
+            } else {
+                toast.error((error as any).data.message, {
+                    position: "top-right",
+                })
+            }
+        }
+    }, [isLoading])
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={cx(styles.form, className)}>
@@ -43,7 +70,6 @@ export const LoginForm = ({ className }: Props) => {
                     </Link>
                 </p>
             </div>
-            {error && <Alert type="error">{error}</Alert>}
             <Input
                 className={styles.input}
                 placeholder="Email"

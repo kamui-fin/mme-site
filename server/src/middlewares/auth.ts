@@ -3,7 +3,7 @@ import { TOKEN_KEY } from "../config"
 import { ApiError } from "../utils"
 import jwt from "jsonwebtoken"
 
-export const verifyToken = (req, res, next) => {
+export const authOnly = (req, res, next) => {
     const token = req.headers["Authorization"]
     if (!token) {
         throw new ApiError("Token required", FORBIDDEN)

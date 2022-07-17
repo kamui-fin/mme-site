@@ -2,7 +2,7 @@ import argon2 from "argon2"
 import { CONFLICT, CREATED, OK } from "http-status"
 import { AppDataSource, JWT_EXPIRE_TIME, TOKEN_KEY } from "../config"
 import { User } from "../entity/User"
-import { ApiError, catchAsync } from "../utils"
+import { ApiError, catchAsync, omit } from "../utils"
 import jwt from "jsonwebtoken"
 
 export const register = catchAsync(async (req, res) => {
@@ -26,7 +26,10 @@ export const register = catchAsync(async (req, res) => {
     user.token = token
     await userRepository.save(user)
 
-    res.status(CREATED).json(user)
+    res.status(CREATED).json({
+        status: "ok",
+        data: omit("password", user),
+    })
 })
 
 export const login = catchAsync(async (req, res) => {
@@ -38,7 +41,10 @@ export const login = catchAsync(async (req, res) => {
             expiresIn: JWT_EXPIRE_TIME,
         })
         user.token = token
-        return res.status(OK).json(user)
+        return res.status(OK).json({
+            status: "ok",
+            data: omit("password", user),
+        })
     }
     throw new ApiError("Invalid credentials", 400)
 })

@@ -5,9 +5,23 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import styles from "scss/components/LoginRegisterForm.module.scss"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { object, string, TypeOf } from "zod"
 import Alert from "./Alert"
 import Button from "./Button"
 import { Input } from "./Input"
+
+const registerSchema = object({
+    name: string().min(1, "Full name is required").max(100),
+    email: string().min(1, "Email address is required").email("Email Address is invalid"),
+    password: string().min(1, "Password is required").min(8, "Password must be atleast 8 characters"),
+    passwordConfirm: string().min(1, "Please confirm your password"),
+}).refine((data) => data.password === data.passwordConfirm, {
+    path: ["passwordConfirm"],
+    message: "Passwords do not match",
+})
+
+export type RegisterInput = TypeOf<typeof registerSchema>
 
 interface Props {
     className?: string
