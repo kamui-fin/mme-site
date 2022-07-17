@@ -25,7 +25,6 @@ const Store: NextPage = ({ books, genres }) => {
     const [availFilter, setAvailFilter] = useState("")
     const [toggle, setToggle] = useState(false)
     const [width, setWidth] = useState(0)
-    const dynamicRoute = useRouter().asPath
     const componentRef = useRef(null)
 
     useEffect(() => {

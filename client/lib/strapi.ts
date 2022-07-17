@@ -2,19 +2,11 @@ import qs from "qs"
 import axios from "axios"
 
 export const getStrapiURL = (path = "") => {
-    if (process.env.NODE_ENV === "production") {
-        return `${process.env.STRAPI_URL}${path}`
-    } else {
-        return `http://localhost:1337${path}`
-    }
+    return `http://localhost:1337${path}`
 }
 
 export const getProxyURL = (path = "") => {
-    if (process.env.NODE_ENV === "production") {
-        return `/cms${path}`
-    } else {
-        getStrapiURL(path)
-    }
+    getStrapiURL(path)
 }
 
 export const fetchAPI = async (path: string, urlParamsObject = {}, options = {}) => {

@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
         <main className="app">
             <Navbar />
             {children}
-            <Footer/>
+            <Footer />
         </main>
     )
 }

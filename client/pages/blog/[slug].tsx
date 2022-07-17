@@ -49,17 +49,4 @@ export async function getServerSideProps({ params }) {
     }
 }
 
-// export async function getStaticPaths() {
-//     const articlesRes = await fetchAPI("/articles", { fields: ["slug"] })
-
-//     return {
-//         paths: articlesRes.data.map((article) => ({
-//             params: {
-//                 slug: article.attributes.slug,
-//             },
-//         })),
-//         fallback: false,
-//     }
-// }
-
 export default Article

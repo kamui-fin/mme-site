@@ -4,7 +4,6 @@ import cx from "classnames"
 import type { NextPage } from "next"
 import Link from "next/link"
 import styles from "scss/layouts/blog.module.scss"
-import BreadCrumbs from "components/BreadCrumbs"
 
 const Blog: NextPage = ({ articles }) => {
     const sorted = articles.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
@@ -25,18 +24,24 @@ const Blog: NextPage = ({ articles }) => {
     )
     return (
         <div className={styles.blogContainer}>
-            <h2 className={styles.title}>Latest Articles</h2>
-            <div className={styles.fibGrid}>
-                <CardLink className={styles.first} article={latestThree[0]} />
-                <CardLink article={latestThree[1]} />
-                <CardLink article={latestThree[2]} />
-            </div>
-            <h2 className={styles.title}>All Articles</h2>
-            <div className={styles.articleGrid}>
-                {rest.map((article) => (
-                    <CardLink article={article} />
-                ))}
-            </div>
+            {articles.length > 0 ? (
+                <>
+                    <h2 className={styles.title}>Latest Articles</h2>
+                    <div className={styles.fibGrid}>
+                        <CardLink className={styles.first} article={latestThree[0]} />
+                        <CardLink article={latestThree[1]} />
+                        <CardLink article={latestThree[2]} />
+                    </div>
+                    <h2 className={styles.title}>All Articles</h2>
+                    <div className={styles.articleGrid}>
+                        {rest.map((article) => (
+                            <CardLink article={article} />
+                        ))}
+                    </div>
+                </>
+            ) : (
+                <h2 className={styles.title}>No hay artículos de blog actualmente</h2>
+            )}
         </div>
     )
 }
