@@ -6,6 +6,7 @@ import { Description } from "./Description"
 import Button from "./Button"
 import { getStrapiMedia } from "lib/strapi"
 import { useState } from "react"
+import Link from "next/link"
 
 interface Props {
     className?: string
@@ -15,9 +16,10 @@ interface Props {
     image: string
     coverType: "Paperback" | "Hardcover"
     price: number
+    purchase: string
 }
 
-export const ProductDetail = ({ title, author, image, coverType, price, description, className }: Props) => {
+export const ProductDetail = ({ purchase, title, author, image, coverType, price, description, className }: Props) => {
     const [toggle, setToggle] = useState(false)
     return (
         <div className={cx(styles.container, className)}>
@@ -28,7 +30,7 @@ export const ProductDetail = ({ title, author, image, coverType, price, descript
                 <p className={styles.coverType}>{coverType}</p>
                 <h3 className={styles.price}>€{price}</h3>
                 <div className={styles.btns}>
-                    <Button btnType="secondary">Buy Book</Button>
+                <Link href={purchase} passHref={true}><Button btnType="secondary">Buy Book</Button></Link>
                 </div>
                 <h3 className={styles.descTitle}>Description</h3>
                 <Description desc={description} />
