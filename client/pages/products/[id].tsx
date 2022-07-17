@@ -26,8 +26,8 @@ const Product: NextPage = ({ book, related }) => {
                 <BreadCrumbs
                     className={styles.breadcrumbs}
                     path={[
-                        { name: "Home", href: "/" },
-                        { name: "Store", href: "/products" },
+                        { name: "Hogar", href: "/" },
+                        { name: "Tienda", href: "/products" },
                     ]}
                 />
                 <ProductDetail {...book.attributes} />
