@@ -49,25 +49,25 @@ const Contact: NextPage = () => {
     return (
         <div className={styles.page}>
             <div className={styles.formContainer}>
-                <h2 className={styles.title}>Get in touch</h2>
-                <h4 className={styles.subtitle}>Our friendly team would love to hear from you!</h4>
+                <h2 className={styles.title}>Ponerse en Contacto</h2>
+                <h4 className={styles.subtitle}>¡A nuestro amable equipo le encantaría saber de usted!</h4>
                 {alert}
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.name}>
                         <div className={styles.group}>
-                            <label className={styles.label}>First Name</label>
+                            <label className={styles.label}>Primer nombre</label>
                             <Input
                                 register={{ ...register("firstName", { required: true }) }}
                                 className={styles.firstname}
-                                placeholder="First Name"
+                                placeholder="Primer nombre"
                             />
                         </div>
                         <div className={styles.group}>
-                            <label className={styles.label}>Last Name</label>
+                            <label className={styles.label}>Apellido</label>
                             <Input
                                 register={{ ...register("lastName", { required: false }) }}
                                 className={styles.lastname}
-                                placeholder="Last Name"
+                                placeholder="Apellido"
                             />
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const Contact: NextPage = () => {
                         />
                     </div>
                     <div className={styles.group}>
-                        <label className={styles.label}>Phone Number</label>
+                        <label className={styles.label}>Número de Teléfono</label>
                         <Input
                             register={{ ...register("phoneNumber", { required: false }) }}
                             className={styles.phone}
@@ -90,7 +90,7 @@ const Contact: NextPage = () => {
                         />
                     </div>
                     <div className={styles.group}>
-                        <label className={styles.label}>Message</label>
+                        <label className={styles.label}>Mensaje</label>
                         <Input
                             register={{ ...register("msg", { required: true }) }}
                             className={styles.textarea}
@@ -98,7 +98,7 @@ const Contact: NextPage = () => {
                         />
                     </div>
                     <Button className={styles.btn} btnType="secondary">
-                        Submit
+                        Enviar
                     </Button>
                 </form>
             </div>

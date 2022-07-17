@@ -32,11 +32,11 @@ export const ProductDetail = ({ purchaseLink, title, author, image, coverType, p
                 <div className={styles.btns}>
                     <Link href={purchaseLink ? purchaseLink : "/404"} passHref={true}>
                         <a>
-                            <Button btnType="secondary">Buy Book</Button>
+                            <Button btnType="secondary">Comprar Libro</Button>
                         </a>
                     </Link>
                 </div>
-                <h3 className={styles.descTitle}>Description</h3>
+                <h3 className={styles.descTitle}>Descripción</h3>
                 <Description desc={description} />
             </div>
         </div>
