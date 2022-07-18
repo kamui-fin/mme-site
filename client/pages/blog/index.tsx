@@ -6,22 +6,25 @@ import Link from "next/link"
 import styles from "scss/layouts/blog.module.scss"
 
 const Blog: NextPage = ({ articles }) => {
-    const sorted = articles.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+    const sorted = articles.sort((a, b) => new Date(b.attributes.published_at) - new Date(a.attributes.published_at))
     const latestThree = sorted.slice(0, 3)
     const rest = sorted.slice(3, sorted.length)
-    const CardLink = ({ className = "", article }) => (
-        <Link href={`/blog/${article.attributes.slug}`}>
-            <a className={cx(styles.link, className)}>
-                <ArticleCard
-                    className={styles.card}
-                    title={article.attributes.title}
-                    image={article.attributes.image}
-                    date={article.attributes.published_at}
-                    duration={article.attributes.duration}
-                />
-            </a>
-        </Link>
-    )
+    const CardLink = ({ className = "", article }) =>
+        article !== undefined ? (
+            <Link href={`/blog/${article.attributes.slug}`}>
+                <a className={cx(styles.link, className)}>
+                    <ArticleCard
+                        className={styles.card}
+                        title={article.attributes.title}
+                        image={article.attributes.image}
+                        date={article.attributes.published_at}
+                        duration={article.attributes.duration}
+                    />
+                </a>
+            </Link>
+        ) : (
+            <></>
+        )
     return (
         <div className={styles.blogContainer}>
             {articles.length > 0 ? (
