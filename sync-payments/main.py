@@ -22,7 +22,7 @@ stripe.api_key = os.environ["TOKEN"]
 def get_intents():
     past_time = int(time.time()) - 86400 # one day
     res = []
-    intents = stripe.PaymentIntent.list(created={"gte": past_time}, limit=100)
+    intents = stripe.PaymentIntent.list(created={"gt": past_time}, limit=100)
     while intents["has_more"]:
         intents = stripe.PaymentIntent.list(starting_after=intents[-1], created={"gte": past_time}, limit=100)
         res.extend(intents)
@@ -67,15 +67,18 @@ def main():
         charge = intent["charges"]["data"][0]
         email = charge["billing_details"]["email"]
         name = charge["billing_details"]["name"]
-        city = charge["billing_details"]["address"]["city"]
-        country = charge["billing_details"]["address"]["country"]
-        line1 = charge["billing_details"]["address"]["line1"]
-        line2 = charge["billing_details"]["address"]["line2"]
-        postal_code = charge["billing_details"]["address"]["postal_code"]
-        state = charge["billing_details"]["address"]["state"]
+        city = charge["shipping"]["address"]["city"]
+        country = charge["shipping"]["address"]["country"]
+        line1 = charge["shipping"]["address"]["line1"]
+        line2 = charge["shipping"]["address"]["line2"]
+        postal_code = charge["shipping"]["address"]["postal_code"]
+        state = charge["shipping"]["address"]["state"]
         book_name = scrape_receipts(charge["receipt_url"])
         address = f"{line1} {line2} {city}, {state}, {country}, {postal_code}"
         rows.append([book_name, address, name, email])
+    
+    if len(rows) == 1:
+        return
     
     with open("temp.csv", "w") as f:
         writer = csv.writer(f)
