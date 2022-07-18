@@ -59,7 +59,9 @@ const Store: NextPage = ({ books, genres }) => {
                 (item) => item.attributes.price >= pricingRange.min && item.attributes.price <= pricingRange.max
             )
             if (genreFilter.length !== 0) {
-                newItems = newItems.filter((item) => genreFilter.includes(item.attributes.genre.data.attributes.name))
+                newItems = newItems.filter((item) =>
+                    item.attributes.genre.data.map((genre) => genreFilter.includes(genre.data.attributes.name)).some()
+                )
             }
             if (coverFilter !== "") {
                 newItems = newItems.filter((item) => item.attributes.coverType === coverFilter.toLowerCase())
@@ -88,7 +90,7 @@ const Store: NextPage = ({ books, genres }) => {
                     </div>
                     <div className={styles.checkGroup}>
                         <h3>Tapa Del Libro</h3>
-                        {["Paperback", "Hardcover", "Digital"].map((cv) => (
+                        {["Libro de bolsillo", "De tapa dura", "Digital"].map((cv) => (
                             <div>
                                 <Checkbox
                                     checked={coverFilter === cv}

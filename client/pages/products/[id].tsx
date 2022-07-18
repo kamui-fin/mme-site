@@ -59,9 +59,7 @@ export const getServerSideProps = async (context): GetServerSideProps => {
                 },
                 {
                     genre: {
-                        name: {
-                            $eq: book.data.attributes.genre.data.attributes.name,
-                        },
+                        $in: book.data.attributes.genre.data,
                     },
                 },
             ],
