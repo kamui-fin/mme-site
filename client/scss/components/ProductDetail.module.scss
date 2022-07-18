@@ -57,6 +57,27 @@
     @include font-size(0.9rem);
 }
 
+.coverType {
+    font-weight: 500;
+    color: $fg-white;
+    margin-top: 1rem;
+    @include font-size(0.9rem);
+}
+
+.preOrderDate {
+    font-weight: 500;
+    color: $fg-white;
+    margin-top: 0.3rem;
+    @include font-size(0.9rem);
+}
+
+.promoCode {
+    font-weight: 500;
+    color: $accent-primary;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
 .price {
     margin-top: .4rem;
     margin-bottom: .8rem;
