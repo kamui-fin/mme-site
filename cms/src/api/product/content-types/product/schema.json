@@ -31,8 +31,8 @@
     "coverType": {
       "type": "enumeration",
       "enum": [
-        "Libro de bolsillo",
-        "De tapa dura",
+        "Tapa blanda",
+        "Tapa dura",
         "Digital"
       ],
       "required": true
