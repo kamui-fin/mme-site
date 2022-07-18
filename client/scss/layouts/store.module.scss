@@ -10,7 +10,9 @@
     flex-direction: column;
     margin-bottom: 5rem;
     padding: 0 2rem;
-    margin: 0 auto;
+    @media screen and (max-width: 1300px) {
+        margin: 0 auto;
+    }
 }
 
 .filterCol {

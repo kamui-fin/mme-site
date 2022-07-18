@@ -24,7 +24,7 @@ def get_intents():
     res = []
     intents = stripe.PaymentIntent.list(created={"gt": past_time}, limit=100)
     while intents["has_more"]:
-        intents = stripe.PaymentIntent.list(starting_after=intents[-1], created={"gte": past_time}, limit=100)
+        intents = stripe.PaymentIntent.list(starting_after=intents[-1], created={"gt": past_time}, limit=100)
         res.extend(intents)
     return intents.data
 
@@ -77,6 +77,8 @@ def main():
         address = f"{line1} {line2} {city}, {state}, {country}, {postal_code}"
         rows.append([book_name, address, name, email])
     
+    print(rows)
+
     if len(rows) == 1:
         return
     
@@ -88,5 +90,5 @@ def main():
 
 schedule.every().day.do(main)
 while True:
-    schedule.run_pending()
-    time.sleep(1)
+   schedule.run_pending()
+   time.sleep(1)
