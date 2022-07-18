@@ -31,8 +31,8 @@
     "coverType": {
       "type": "enumeration",
       "enum": [
-        "Paperback",
-        "Hardcover",
+        "Libro de bolsillo",
+        "De tapa dura",
         "Digital"
       ],
       "required": true
@@ -50,20 +50,26 @@
     },
     "genre": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::genre.genre",
-      "inversedBy": "books"
+      "relation": "oneToMany",
+      "target": "api::genre.genre"
     },
     "availability": {
       "type": "enumeration",
       "enum": [
-        "pre-order",
-        "in-stock"
+        "agotado",
+        "en stock"
       ]
     },
     "purchaseLink": {
       "type": "string",
       "required": true
+    },
+    "promoCodeText": {
+      "type": "string",
+      "default": "\"PROMO\" for 20% off until 7/31/22"
+    },
+    "preorderDate": {
+      "type": "date"
     }
   }
 }

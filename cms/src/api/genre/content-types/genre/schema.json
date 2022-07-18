@@ -14,12 +14,6 @@
   "attributes": {
     "name": {
       "type": "string"
-    },
-    "books": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "genre"
     }
   }
 }
