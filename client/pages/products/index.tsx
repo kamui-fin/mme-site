@@ -60,11 +60,11 @@ const Store: NextPage = ({ books, genres }) => {
             )
             if (genreFilter.length !== 0) {
                 newItems = newItems.filter((item) =>
-                    item.attributes.genre.data.map((genre) => genreFilter.includes(genre.data.attributes.name)).some()
+                    item.attributes.genre.data.map((genre) => genreFilter.includes(genre.attributes.name)).some(elm => elm)
                 )
             }
             if (coverFilter !== "") {
-                newItems = newItems.filter((item) => item.attributes.coverType === coverFilter.toLowerCase())
+                newItems = newItems.filter((item) => item.attributes.coverType.toLowerCase() === coverFilter.toLowerCase())
             }
             if (availFilter) newItems = newItems.filter((item) => item.attributes.availability === availFilter.toLowerCase())
             setItems(newItems)
