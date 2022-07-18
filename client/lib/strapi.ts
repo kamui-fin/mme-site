@@ -2,7 +2,7 @@ import qs from "qs"
 import axios from "axios"
 
 export const getStrapiURL = (path = "") => {
-    return `${process.env.STRAPI_URL}${path}`
+    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${path}`
 }
 
 export const getProxyURL = (path = "") => {
