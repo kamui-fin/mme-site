@@ -18,7 +18,7 @@ export default function Document() {
 
                 <meta name="og:title" content="Monogatari Media Editorial" />
                 <meta name="og:type" content="website" />
-                <meta name="og:image" content="https://gatari.shop/logo.png" />
+                <meta name="og:image" content="https://gatari.shop/logo-image.png" />
                 <meta name="og:site_name" content="Monogatari Media Editorial" />
                 <meta
                     name="og:description"

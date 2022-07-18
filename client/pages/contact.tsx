@@ -54,7 +54,7 @@ const Contact: NextPage = () => {
             </Head>
             <div className={styles.formContainer}>
                 <h2 className={styles.title}>Ponerse en Contacto</h2>
-                <h4 className={styles.subtitle}>¡A nuestro amable equipo le encantaría saber de usted!</h4>
+                <h4 className={styles.subtitle}>¡Te echaremos una mano!</h4>
                 {alert}
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.name}>

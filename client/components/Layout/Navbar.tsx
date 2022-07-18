@@ -21,9 +21,9 @@ const Navbar = () => {
             <Link href={"/"}><Image src="/logo.png" width={398} height={52}/></Link>
             </div>
             <div className={styles.navitem}>
-                <NavbarItem text="Hogar" url="/"/>
+                <NavbarItem text="Inicio" url="/"/>
                 <NavbarItem text="Tienda" url="/products"/>
-                <NavbarItem text="Sobre" url="/about"/>
+                <NavbarItem text="Acerca de" url="/about"/>
                 <NavbarItem text="Blog" url="/blog"/>
                 <NavbarItem text="Contacto" url="/contact"/>
             </div>
@@ -40,11 +40,11 @@ const Navbar = () => {
     <div className={styles.drawer} style={{display: toggle ? "flex" : "none"}}>
         <div className={styles.drawerContainer} style={{display: toggle ? "flex" : "none"}}>
             <div >
-            <NavbarItem text="Home" url="/"/>
-            <NavbarItem text="Store" url="/products"/>
-            <NavbarItem text="About" url="/about"/>
-            <NavbarItem text="Blog" url="/blog"/>
-            <NavbarItem text="Contact" url="/contact"/>
+                <NavbarItem text="Inicio" url="/"/>
+                <NavbarItem text="Tienda" url="/products"/>
+                <NavbarItem text="Acerca de" url="/about"/>
+                <NavbarItem text="Blog" url="/blog"/>
+                <NavbarItem text="Contacto" url="/contact"/>
             </div>
             {/* <Button onDone={() => setCartToggle(!cartToggle)} className={styles.navbuttons} btnType="primary" children={<>View Cart</>}/> */}
             {/* <Link href={"/login"}><a href="/login"><Button className={styles.navbuttons} btnType="secondary" children={<>Login</>}/></a></Link> */}

@@ -90,7 +90,7 @@ const Store: NextPage = ({ books, genres }) => {
                     </div>
                     <div className={styles.checkGroup}>
                         <h3>Tapa Del Libro</h3>
-                        {["Libro de bolsillo", "De tapa dura", "Digital"].map((cv) => (
+                        {["Tapa blanda", "Tapa dura", "Digital"].map((cv) => (
                             <div>
                                 <Checkbox
                                     checked={coverFilter === cv}
