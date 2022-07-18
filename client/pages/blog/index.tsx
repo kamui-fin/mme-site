@@ -4,6 +4,7 @@ import cx from "classnames"
 import type { NextPage } from "next"
 import Link from "next/link"
 import styles from "scss/layouts/blog.module.scss"
+import Head from "next/head"
 
 const Blog: NextPage = ({ articles }) => {
     const sorted = articles.sort((a, b) => new Date(b.attributes.published_at) - new Date(a.attributes.published_at))
@@ -27,6 +28,9 @@ const Blog: NextPage = ({ articles }) => {
         )
     return (
         <div className={styles.blogContainer}>
+            <Head>
+                <title>MME | Blog</title>
+            </Head>
             {articles.length > 0 ? (
                 <>
                     <h2 className={styles.title}>Artículos Recientes</h2>

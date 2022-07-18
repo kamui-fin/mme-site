@@ -6,6 +6,7 @@ import { Carousel } from "components/Carousel"
 import { BookCard } from "components/BookCard"
 import { IconTextCard } from "components/IconTextCard"
 import { fetchAPI } from "lib/strapi"
+import  Head  from "next/head"
 
 const Home: NextPage = ({ books, genres }) => {
     const listGenres = genres.map((genre) => (
@@ -29,6 +30,9 @@ const Home: NextPage = ({ books, genres }) => {
 
     return (
         <>
+            <Head>
+                <title>Monogatari Media Editorial</title>
+            </Head>
             <Hero />
             {books.length > 0 && (
                 <div className={styles.bottomLanding}>

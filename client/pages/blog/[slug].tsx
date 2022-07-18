@@ -6,12 +6,16 @@ import BookOutline from "assets/book-outline.svg"
 import ClockOutline from "assets/clock-outline.svg"
 import styles from "scss/layouts/article.module.scss"
 import BreadCrumbs from "components/BreadCrumbs"
+import Head from "next/head"
 
 const Article = ({ article }) => {
     const imageUrl = getStrapiMedia(article.attributes.image)
 
     return (
         <div className={styles.container}>
+            <Head>
+                <title>MME | {article.attributes.title}</title>
+            </Head>
             <BreadCrumbs
                 className={styles.crumbs}
                 path={[

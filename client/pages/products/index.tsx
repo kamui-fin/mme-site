@@ -10,10 +10,10 @@ import RangeInput from "components/RangeInput"
 import Checkbox from "components/Checkbox"
 import { fetchAPI } from "lib/strapi"
 import { useEffect, useRef, useState } from "react"
-import { useRouter } from "next/router"
 import button from "scss/components/Button.module.scss"
 import cx from "classnames"
 import Image from "next/image"
+import Head from "next/head"
 
 const Store: NextPage = ({ books, genres }) => {
     const [items, setItems] = useState(books)
@@ -60,7 +60,7 @@ const Store: NextPage = ({ books, genres }) => {
             )
             if (genreFilter.length !== 0) {
                 newItems = newItems.filter((item) =>
-                    item.attributes.genre.data.map((genre) => genreFilter.includes(genre.attributes.name)).some(elm => elm)
+                    item.attributes.genre.data.map((genre) => genreFilter.includes(genre.attributes.name)).some((elm) => elm)
                 )
             }
             if (coverFilter !== "") {
@@ -144,6 +144,9 @@ const Store: NextPage = ({ books, genres }) => {
     }
     return (
         <div className={styles.store} ref={componentRef}>
+            <Head>
+                <title>MME | Catalog</title>
+            </Head>
             {filterColumn()}
             <section className={styles.mainContainer}>
                 <h1 className={styles.catalogTitle}>Catalogar</h1>

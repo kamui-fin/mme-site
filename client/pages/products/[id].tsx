@@ -6,6 +6,7 @@ import type { GetServerSideProps, GetStaticProps, NextPage } from "next"
 import styles from "scss/layouts/product.module.scss"
 import carousel from "scss/components/Carousel.module.scss"
 import { fetchAPI } from "lib/strapi"
+import Head from "next/head"
 
 const Product: NextPage = ({ book, related }) => {
     const listCards = related.map((card) => (
@@ -22,6 +23,9 @@ const Product: NextPage = ({ book, related }) => {
     ))
     return (
         <div>
+            <Head>
+                <title>MME | {book.attributes.title}</title>
+            </Head>
             <div className={styles.detailContainer}>
                 <BreadCrumbs
                     className={styles.breadcrumbs}
@@ -47,7 +51,7 @@ export default Product
 export const getServerSideProps = async (context): GetServerSideProps => {
     const { id } = context.params
     const book = await fetchAPI(`/products/${id}`, { populate: ["image", "genre"] })
-    const genreNames = await book.data.attributes.genre.data.map(genre => genre.attributes.name)
+    const genreNames = await book.data.attributes.genre.data.map((genre) => genre.attributes.name)
     const related = await fetchAPI("/products", {
         populate: ["image", "genre"],
         filters: {
@@ -60,8 +64,8 @@ export const getServerSideProps = async (context): GetServerSideProps => {
                 {
                     genre: {
                         name: {
-                            $in: genreNames
-                        }
+                            $in: genreNames,
+                        },
                     },
                 },
             ],

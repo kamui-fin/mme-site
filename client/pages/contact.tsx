@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import Image from "next/image"
 import styles from "scss/layouts/contact.module.scss"
 import Alert from "components/Alert"
+import  Head  from "next/head"
 
 const Contact: NextPage = () => {
     const {
@@ -48,6 +49,9 @@ const Contact: NextPage = () => {
     }
     return (
         <div className={styles.page}>
+            <Head>
+                <title>MME | Contact</title>
+            </Head>
             <div className={styles.formContainer}>
                 <h2 className={styles.title}>Ponerse en Contacto</h2>
                 <h4 className={styles.subtitle}>¡A nuestro amable equipo le encantaría saber de usted!</h4>
