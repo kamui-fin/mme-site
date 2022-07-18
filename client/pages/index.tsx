@@ -38,7 +38,7 @@ const Home: NextPage = ({ books, genres }) => {
                     </section>
                     <section className={styles.genre}>
                         <h3 className={styles.subtitle}>Géneros</h3>
-                        <Carousel width={"60%"} count={5} children={listGenres} />
+                        <Carousel width={"60%"} count={3} children={listGenres} />
                     </section>
                 </div>
             )}

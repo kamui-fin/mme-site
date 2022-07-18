@@ -77,7 +77,7 @@ const Contact: NextPage = () => {
                             register={{ ...register("email", { required: true }) }}
                             className={styles.email}
                             placeholder="you@company.com"
-                            valueType="email"
+                            type="email"
                         />
                     </div>
                     <div className={styles.group}>
@@ -86,7 +86,7 @@ const Contact: NextPage = () => {
                             register={{ ...register("phoneNumber", { required: false }) }}
                             className={styles.phone}
                             placeholder="+1 123-000-0000"
-                            valueType="tel"
+                            type="tel"
                         />
                     </div>
                     <div className={styles.group}>
@@ -97,7 +97,7 @@ const Contact: NextPage = () => {
                             type="textarea"
                         />
                     </div>
-                    <Button className={styles.btn} btnType="secondary">
+                    <Button type="submit" className={styles.btn} btnType="secondary">
                         Enviar
                     </Button>
                 </form>
