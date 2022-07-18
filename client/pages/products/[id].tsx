@@ -32,13 +32,12 @@ const Product: NextPage = ({ book, related }) => {
                 />
                 <ProductDetail {...book.attributes} />
             </div>
-            {related.length !== 0 && 
-
-            <div className={styles.related}>
-                <h1>También te puede gustar</h1>
-                <Carousel width={"80%"} count={related.length >= 4 ? 4 : related.length} children={listCards} />
-            </div>
-        }
+            {related.length !== 0 && (
+                <div className={styles.related}>
+                    <h1>También te puede gustar</h1>
+                    <Carousel width={"80%"} count={related.length >= 4 ? 4 : related.length} children={listCards} />
+                </div>
+            )}
         </div>
     )
 }
@@ -48,6 +47,7 @@ export default Product
 export const getServerSideProps = async (context): GetServerSideProps => {
     const { id } = context.params
     const book = await fetchAPI(`/products/${id}`, { populate: ["image", "genre"] })
+    const genreNames = await book.data.attributes.genre.data.map(genre => genre.attributes.name)
     const related = await fetchAPI("/products", {
         populate: ["image", "genre"],
         filters: {
@@ -59,7 +59,9 @@ export const getServerSideProps = async (context): GetServerSideProps => {
                 },
                 {
                     genre: {
-                        $in: book.data.attributes.genre.data,
+                        name: {
+                            $in: genreNames
+                        }
                     },
                 },
             ],

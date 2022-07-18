@@ -35,14 +35,18 @@
     object-fit: contain;
 }
 
-.title, .author, .price, .coverType, .descTitle {
+.title,
+.author,
+.price,
+.coverType,
+.descTitle {
     margin: 0;
 }
 
 .title {
     @include font-size(2rem);
     color: $fg-white;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
 }
 
 .author {
@@ -74,13 +78,13 @@
 .promoCode {
     font-weight: 500;
     color: $accent-primary;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
+    margin-top: 0.1rem;
+    margin-bottom: 1rem;
 }
 
 .price {
-    margin-top: .4rem;
-    margin-bottom: .8rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
     @include font-size(2rem);
     color: $fg-white;
 }
@@ -92,6 +96,6 @@
 }
 
 .descTitle {
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
     color: $fg-white;
 }

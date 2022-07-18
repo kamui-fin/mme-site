@@ -16,13 +16,25 @@ interface Props {
     image: string
     coverType: string
     price: number
-    availbility: string
+    availability: string
     preorderDate: string
     purchaseLink: string
     promoCodeText: string
 }
 
-export const ProductDetail = ({ availbility, preorderDate, promoCodeText, purchaseLink, title, author, image, coverType, price, description, className }: Props) => {
+export const ProductDetail = ({
+    availability,
+    preorderDate,
+    promoCodeText,
+    purchaseLink,
+    title,
+    author,
+    image,
+    coverType,
+    price,
+    description,
+    className,
+}: Props) => {
     const [toggle, setToggle] = useState(false)
     return (
         <div className={cx(styles.container, className)}>
@@ -30,7 +42,9 @@ export const ProductDetail = ({ availbility, preorderDate, promoCodeText, purcha
             <div className={styles.textPart}>
                 <h3 className={styles.title}>{title}</h3>
                 <h5 className={styles.author}>{author}</h5>
-                <p className={styles.preOrderDate}>{availbility === "agotado" ? preorderDate : "En Stock"}</p>
+                <p className={styles.preOrderDate}>
+                    {availability === "agotado" ? `Preorder Date: ${preorderDate}` : "En Stock"}
+                </p>
                 <p className={styles.coverType}>{coverType}</p>
                 <h3 className={styles.price}>€{price}</h3>
                 <div className={styles.btns}>
